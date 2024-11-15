@@ -1,0 +1,7 @@
+obj
+Cub3D
+*.a
+*.o
+*.out
+.vs_code
+.DS_Store
