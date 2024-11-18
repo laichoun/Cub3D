@@ -26,6 +26,7 @@ CFILES	=	ft_tolower.c \
 			ft_memcmp.c \
 			ft_strlcat.c \
 			ft_strlcpy.c \
+			ft_strtok.c \
 			ft_calloc.c \
 			ft_strchr.c \
 			ft_strdup.c \
