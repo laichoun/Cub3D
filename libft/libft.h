@@ -344,6 +344,6 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_fprintf(int fd, const char *str, ...);
 int		ft_free_split(char **tab);
 void	ft_display_split(char **tab);
-char 	**ft_strtok(char *str, char *charset);
+char	**ft_strtok(char *str, char *charset);
 
 #endif
