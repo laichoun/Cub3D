@@ -56,19 +56,11 @@ int	is_valid_row(t_file *file)
 			while (j < file->width && file->map[i][j] == 32)
 				j++;
 			if (j < file->width && file->map[i][j] != '1')
-			{
-                err_msg(ERROR_NOT_SURROUNDED, NULL);
-				//printf("NOK first char is not a wall border_rows, position i;%d,j : %d\n", i, j);
-				return (FAILURE);
-			}
+                return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
 			while (j < file->width && file->map[i][j] != 32)
 				j++;
 			if (file->map[i][j - 1] != '1' && file->map[i][j - 1] != ' ')
-			{
-                err_msg(ERROR_NOT_SURROUNDED, NULL);
-				//printf("NOK first char is not a wall border_rows test,position i ;%d, j : %d\n", i, j);
-				return (FAILURE);
-			}
+                return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
 			j++;
 		}
 		i++;
@@ -90,19 +82,11 @@ int	is_valid_col(t_file *file)
 			while (i < file->height && file->map[i][j] == 32)
 				i++;
 			if (i < file->height && file->map[i][j] != '1')
-			{
-                err_msg(ERROR_NOT_SURROUNDED, NULL);
-				//printf("NOK first char is not a wall border_rows, position i ;%d, j : %d\n", i, j);
-				return (FAILURE);
-			}
+                return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
 			while (i < file->height && file->map[i][j] != 32)
 				i++;
 			if (file->map[i - 1][j] != '1' && file->map[i - 1][j] != ' ')
-			{
-                err_msg(ERROR_NOT_SURROUNDED, NULL);
-				//printf("NOK first char is not a wall border_rows test,position i ; %d, j : %d\n", i - 1, j);
-				return (FAILURE);
-			}
+                return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
 			i++;
 		}
 		j++;
