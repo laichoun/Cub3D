@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:35:55 by pibernar          #+#    #+#             */
-/*   Updated: 2024/02/26 11:33:41 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/11/19 14:21:13 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,15 @@ int	ft_free_split(char **tab)
 	if (!tab)
 		return (1);
 	if (!(*tab))
-		return (free(tab), (1));
-	i = 0;
-	while (tab[i])
-		free(tab[i++]);
+		return (free(tab), tab = NULL, (1));
+	i = -1;
+	while (tab[++i])
+	{
+		free(tab[i]);
+		tab[i] = NULL;
+	}
 	free(tab);
+	tab = NULL;
 	return (0);
 }
 
@@ -115,7 +119,7 @@ void	ft_display_split(char **tab)
 		return ;
 	while (tab[i])
 	{
-		ft_printf("tab[%d]=%s\n", i, tab[i]);
+		ft_printf("%s\n", tab[i]);
 		i++;
 	}
 }
