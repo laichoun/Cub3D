@@ -24,7 +24,9 @@ SRC_FILES =	main.c \
 			init/check_map.c \
 			utils/display.c \
 			utils/error.c \
-			utils/free.c
+			utils/free.c \
+			events/key_handle.c \
+			events/close_window.c
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
