@@ -29,16 +29,18 @@ int	check_player(t_file *file)
 		{
 			if (file->map[i][j] == 'N' || file->map[i][j] == 'S'
 				|| file->map[i][j] == 'W' || file->map[i][j] == 'E')
+			{
 				file->player++;
+				file->player_x = i;
+				file->player_y = j;
+				file->dir = file->map[i][j];
+			}
 			j++;
 		}
 		i++;
 	}
 	if (file->player != 1)
-	{
-        err_msg(ERROR_PLAYER, NULL);
-		return (FAILURE);
-	}
+        return (err_msg(ERROR_PLAYER, NULL), FAILURE);
 	return (SUCCESS);
 }
 

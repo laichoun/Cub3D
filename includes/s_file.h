@@ -8,6 +8,9 @@ typedef struct s_file
 	int		width;
 	int		height;
 	int		player;
+	int		player_x;
+	int		player_y;
+	char	dir;
 	int		so;
 	int		no;
 	int		ea;
