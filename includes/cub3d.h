@@ -15,7 +15,7 @@
 
 # define WIDTH 800
 # define HEIGHT 800
-//letting both chars and void*; old version with char* works but should be removed
+
 typedef struct s_textures
 {
 	t_img	*img_no;

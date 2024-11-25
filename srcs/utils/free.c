@@ -4,7 +4,6 @@ void	free_game(t_game *game)
 {
 	ft_free_split(game->map);
 	mlx_destroy_image(game->mlx, game->screen);
-	//mlx_destroy_image(game->mlx, game->img_game);
 	//mlx_destroy_image(game->mlx, game->img_minimap);
 	mlx_destroy_image(game->mlx, game->textures.img_no);
 	mlx_destroy_image(game->mlx, game->textures.img_so);
@@ -12,7 +11,6 @@ void	free_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->textures.img_we);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
-	//mlx_loop_end(game->mlx);
 	free(game->mlx);
 }
 
