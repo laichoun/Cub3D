@@ -31,8 +31,8 @@ int	check_player(t_file *file)
 				|| file->map[i][j] == 'W' || file->map[i][j] == 'E')
 			{
 				file->player++;
-				file->player_x = i;
-				file->player_y = j;
+				file->player_x = j;
+				file->player_y = i;
 				file->dir = file->map[i][j];
 			}
 			j++;
