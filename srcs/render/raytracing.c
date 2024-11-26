@@ -3,6 +3,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*int		ft_texture(t_game *game, int x, int y)
+{
+	int *dst;
+	int	bpp;
+	int size_line;
+	int endian;
+
+	dst = (int *)mlx_get_data_addr(game->textures.img_no, &bpp, &size_line, &endian);
+
+	return 0;
+}*/
+
 void mlx_draw_vertline(int x, int drawStart, int drawEnd, int color, t_game *game)
 {
 	int *dst;
