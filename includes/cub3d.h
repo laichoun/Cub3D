@@ -9,6 +9,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
+# include <math.h>
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -36,7 +37,14 @@ typedef struct s_game
 	int			height;
 	int			player_x;
 	int			player_y;
+	int			color;
 	char		dir;
+	float		posX;
+	float		posY;
+	float		dirX;
+	float		dirY;
+	float		planeX;
+	float		planeY;
 	void		*mlx;
 	t_img		*screen;
 	void		*win;

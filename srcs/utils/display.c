@@ -19,6 +19,7 @@ void display_game_data(t_game game)
 			game.textures.f_rgb[2]);
 	ft_printf("Ceiling: (%d,%d,%d)\n", game.textures.c_rgb[0], game.textures.c_rgb[1],
 			game.textures.c_rgb[2]);
+	ft_printf("Player pos: (%d,%d)\n", game.player_x, game.player_y);
 }
 
 void	display_file(t_file f)

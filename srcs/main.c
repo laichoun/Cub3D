@@ -1,5 +1,5 @@
 #include "../includes/cub3d.h"
-
+/*
 int	main(int argc, char **argv)
 {
 	t_game game;
@@ -14,4 +14,4 @@ int	main(int argc, char **argv)
 	mlx_loop(game.mlx);
 	free_game(&game);
 	return (0);
-}
+}*/
