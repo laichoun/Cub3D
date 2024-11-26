@@ -26,8 +26,6 @@ void mlx_draw_vertline(int x, int drawStart, int drawEnd, int color, t_game *gam
 
 int		render(t_game *game)
 {
-	static int u = 0;
-	printf("%d\n", ++u);
 	for (int x = 0; x < WIDTH; ++x)
 	{
 		float cameraX = 2 * x / (float) WIDTH - 1;	
