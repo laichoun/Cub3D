@@ -34,9 +34,10 @@ typedef struct s_game
 	int			col;
 	int			width;
 	int			height;
-	int			player_x;
-	int			player_y;
-	char		dir;
+	float		pos_x;
+	float		pos_y;
+	float		dir[2];
+	float		angle;
 	void		*mlx;
 	t_img		*screen;
 	void		*win;
