@@ -14,8 +14,8 @@
 # define SUCCESS 0
 # define FAILURE 1
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1920
+# define HEIGHT 1080
 
 typedef struct s_textures
 {
@@ -39,6 +39,8 @@ typedef struct s_game
 	float		pos_y;
 	float		dir[2];
 	float		angle;
+	float		planeX;
+	float		planeY;
 	void		*mlx;
 	t_img		*screen;
 	void		*win;

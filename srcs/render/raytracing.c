@@ -28,12 +28,12 @@ int		render(t_game *game)
 {
 	for (int x = 0; x < WIDTH; ++x)
 	{
-		float cameraX = 2 * x / (float) WIDTH - 1;	
-		float rayDirX = game->dirX + game->planeX * cameraX;
-		float rayDirY = game->dirY + game->planeY * cameraX;
+		double cameraX = 2 * x / (double)WIDTH - 1;	
+		float rayDirX = game->dir[0] + game->planeX * cameraX;
+		float rayDirY = game->dir[1] + game->planeY * cameraX;
 
-		int mapX = game->posX;
-		int mapY = game->posY;
+		int mapX = game->pos_x;
+		int mapY = game->pos_y;
 
 		float sideDistX;
 		float sideDistY;
@@ -52,22 +52,22 @@ int		render(t_game *game)
 		if (rayDirX < 0)
 		{
 			stepX = -1;
-			sideDistX = (game->posX - mapX) * deltaDistX;
+			sideDistX = (game->pos_x - mapX) * deltaDistX;
 		}
 		else
 		{
 			stepX = 1;
-			sideDistX = ( mapX + 1.0 - game->posX) * deltaDistX;
+			sideDistX = ( mapX + 1.0 - game->pos_x) * deltaDistX;
 		}
 		if (rayDirY < 0)
 		{
 			stepY = -1;
-			sideDistY = (game->posY - mapY) * deltaDistY;
+			sideDistY = (game->pos_y - mapY) * deltaDistY;
 		}
 		else
 		{
 			stepY = 1;
-			sideDistY = ( mapY + 1.0 - game->posY) * deltaDistY;
+			sideDistY = ( mapY + 1.0 - game->pos_y) * deltaDistY;
 		}
 		while (hit == 0)
 		{
@@ -83,6 +83,9 @@ int		render(t_game *game)
 				mapY += stepY;
 				side = 1;
 			}
+			printf("%d\n", game->col);
+			if (mapX < 0 || mapY < 0 || mapX >= game->row || mapY >= game->col)
+				break ;
 			if (game->map[mapY][mapX] == '1' || game->map[mapY][mapX] == '2')
 				hit = 1;
 		}
@@ -98,6 +101,11 @@ int		render(t_game *game)
 		if (drawEnd >= HEIGHT)
 			drawEnd = HEIGHT - 1;
 		int color;
+		if (hit == 0)
+		{
+			mlx_draw_vertline(x, 0, HEIGHT, 0x00000000, game);
+			continue;
+		}
 		switch (game->map[mapY][mapX])
 		{
 			case '2': color = 0x0000FF00; break;
@@ -124,12 +132,8 @@ int	main(int argc, char *argv[])
 =============================================================================
 */
 
-	game.posX = (float)27;
-	game.posY = (float)11;
-	game.dirX = .0;
-	game.dirY = -1.0;
 	game.planeX = 0.0;
-	game.planeY = 0.0;
+	game.planeY = 0.6;
 /*
 =============================================================================
 =============================================================================
