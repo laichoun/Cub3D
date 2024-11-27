@@ -3,18 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*int		ft_texture(t_game *game, int x, int y)
-{
-	int *dst;
-	int	bpp;
-	int size_line;
-	int endian;
-
-	dst = (int *)mlx_get_data_addr(game->textures.img_no, &bpp, &size_line, &endian);
-
-	return 0;
-}*/
-
 void mlx_draw_vertline(int x, int drawStart, int drawEnd, int color, t_game *game)
 {
 	int *dst;
@@ -38,92 +26,67 @@ void mlx_draw_vertline(int x, int drawStart, int drawEnd, int color, t_game *gam
 
 int		render(t_game *game)
 {
+	float	ratio;
+
 	for (int x = 0; x < WIDTH; ++x)
 	{
-		double cameraX = 2 * x / (double)WIDTH - 1;	
-		float rayDirX = game->dir[0] + game->dir_p[0] * cameraX;
-		float rayDirY = game->dir[1] + game->dir_p[1] * cameraX;
+		ratio = 2 * x / (float)WIDTH - 1;	
+		game->dir_ray_x = game->dir_x + game->dir_plane_x * ratio;
+		game->dir_ray_y = game->dir_y + game->dir_plane_y * ratio;
 
-		int mapX = game->pos_x;
-		int mapY = game->pos_y;
+		game->ray_pos_x = game->pos_x;
+		game->ray_pos_y = game->pos_y;
 
-		float sideDistX;
-		float sideDistY;
-
-		float deltaDistX = (rayDirX == 0) ? 1e20 : fabs(1 / rayDirX);
-		float deltaDistY = (rayDirY == 0) ? 1e20 : fabs(1 / rayDirY);
-
-		float perpWallDist;
-
-		int stepX;
-		int stepY;
+		game->delta_x = (game->dir_ray_x == 0) ? 1e20 : fabs(1 / game->dir_ray_x);
+		game->delta_y = (game->dir_ray_y == 0) ? 1e20 : fabs(1 / game->dir_ray_y);
 
 		int hit = 0;
-		int side;
 
-		if (rayDirX < 0)
+		if (game->dir_ray_x < 0)
 		{
-			stepX = -1;
-			sideDistX = (game->pos_x - mapX) * deltaDistX;
+			game->step_x = -1;
+			game->side_dist_x = (game->pos_x - game->ray_pos_x) * game->delta_x;
 		}
 		else
 		{
-			stepX = 1;
-			sideDistX = ( mapX + 1.0 - game->pos_x) * deltaDistX;
+			game->step_x = 1;
+			game->side_dist_x = (game->ray_pos_x + 1.0 - game->pos_x) * game->delta_x;
 		}
-		if (rayDirY < 0)
+		if (game->dir_ray_y < 0)
 		{
-			stepY = -1;
-			sideDistY = (game->pos_y - mapY) * deltaDistY;
+			game->step_y = -1;
+			game->side_dist_y = (game->pos_y - game->ray_pos_y) * game->delta_y;
 		}
 		else
 		{
-			stepY = 1;
-			sideDistY = ( mapY + 1.0 - game->pos_y) * deltaDistY;
+			game->step_y = 1;
+			game->side_dist_y = (game->ray_pos_y + 1.0 - game->pos_y) * game->delta_y;
 		}
 		while (hit == 0)
 		{
-			if (sideDistX < sideDistY)
+			if (game->side_dist_x < game->side_dist_y)
 			{
-				sideDistX += deltaDistX;
-				mapX += stepX;
-				side = 0;
+				game->side_dist_x += game->delta_x;
+				game->ray_pos_x += game->step_x;
+				game->side = 0;
 			}
 			else
 			{
-				sideDistY += deltaDistY;
-				mapY += stepY;
-				side = 1;
+				game->side_dist_y += game->delta_y;
+				game->ray_pos_y += game->step_y;
+				game->side = 1;
 			}
-			if (mapX < 0 || mapY < 0 || mapX >= game->row || mapY >= game->col)
-				break ;
-			if (game->map[mapY][mapX] == '1' || game->map[mapY][mapX] == '2')
+			//if (mapX < 0 || mapY < 0 || mapX >= game->row || mapY >= game->col)
+			//	break ;
+			if (game->map[game->ray_pos_y][game->ray_pos_x] == '1'
+				|| game->map[game->ray_pos_y][game->ray_pos_x] == '2')
 				hit = 1;
 		}
-		if (side == 0)
-			perpWallDist = (sideDistX - deltaDistX);
+		if (game->side == 0)
+			game->dist_perp_x = (game->side_dist_x - game->delta_x);
 		else
-			perpWallDist = (sideDistY - deltaDistY);
-		int lineHeight = (int) (HEIGHT / perpWallDist);
-		int drawStart = -lineHeight / 2 + HEIGHT / 2;
-		if (drawStart < 0)
-			drawStart = 0;
-		int drawEnd = lineHeight / 2 + HEIGHT / 2;
-		if (drawEnd >= HEIGHT)
-			drawEnd = HEIGHT - 1;
-		int color;
-		if (hit == 0)
-		{
-			mlx_draw_vertline(x, 0, HEIGHT, 0x00000000, game);
-			continue;
-		}
-		switch (game->map[mapY][mapX])
-		{
-			case '2': color = 0x0000FF00; break;
-			case '1': color = 0x00FF0000; break;
-		}
-		if (side == 1) color /= 2;
-		mlx_draw_vertline(x, drawStart, drawEnd, color, game);
+			game->dist_perp_y = (game->side_dist_y - game->delta_y);
+		draw_vertline(game, x);
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
 	return (SUCCESS);

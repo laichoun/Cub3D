@@ -27,23 +27,41 @@ typedef struct s_textures
 	int			c_rgb[3];
 }				t_textures;
 
+typedef struct s_raycast
+{
+}	t_ray;
+
 typedef struct s_game
 {
+	t_ray		*ray;
 	t_textures	textures;
 	char		**map;
 	int			row;
 	int			col;
-	int			width;
-	int			height;
-	float		pos_x;
-	float		pos_y;
-	float		dir[2];
-	float		dir_p[2];
 	void		*mlx;
-	t_img		*screen;
 	void		*win;
+	t_img		*screen;
 	t_img		*img_game;
 	t_img		*img_minimap;
+	float	pos_x;
+	float	pos_y;
+	float	dir_x;
+	float	dir_y;
+	float	dir_plane_x;
+	float	dir_plane_y;
+	float	dir_ray_x;
+	float	dir_ray_y;
+	float	side_dist_x;
+	float	side_dist_y;
+	float	delta_x;
+	float	delta_y;
+	float	dist_perp_x;
+	float	dist_perp_y;
+	int		ray_pos_x;
+	int		ray_pos_y;
+	int		step_x;
+	int		step_y;
+	int		side;
 }				t_game;
 
 // init how to name functions? initGameAssets? or parseGameDAta? load_gameData?
@@ -54,6 +72,9 @@ int				init_mlx(t_game *game, t_file *file);
 void			free_game(t_game *game);
 void			skip_newlines(t_file *file, int *i);
 int				set_player_dir(t_game *gamep, t_file *file);
+
+//mlx helper
+void	draw_vertline(t_game *game, int x);
 
 // key_handle
 int				key_handle(int key, t_game *game);
