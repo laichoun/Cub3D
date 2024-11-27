@@ -38,9 +38,7 @@ typedef struct s_game
 	float		pos_x;
 	float		pos_y;
 	float		dir[2];
-	float		angle;
-	float		planeX;
-	float		planeY;
+	float		dir_p[2];
 	void		*mlx;
 	t_img		*screen;
 	void		*win;
@@ -55,6 +53,7 @@ void			init_blank_game(t_game *gamep);
 int				init_mlx(t_game *game, t_file *file);
 void			free_game(t_game *game);
 void			skip_newlines(t_file *file, int *i);
+int				set_player_dir(t_game *gamep, t_file *file);
 
 // key_handle
 int				key_handle(int key, t_game *game);

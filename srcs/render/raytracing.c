@@ -41,8 +41,8 @@ int		render(t_game *game)
 	for (int x = 0; x < WIDTH; ++x)
 	{
 		double cameraX = 2 * x / (double)WIDTH - 1;	
-		float rayDirX = game->dir[0] + game->planeX * cameraX;
-		float rayDirY = game->dir[1] + game->planeY * cameraX;
+		float rayDirX = game->dir[0] + game->dir_p[0] * cameraX;
+		float rayDirY = game->dir[1] + game->dir_p[1] * cameraX;
 
 		int mapX = game->pos_x;
 		int mapY = game->pos_y;
@@ -95,7 +95,6 @@ int		render(t_game *game)
 				mapY += stepY;
 				side = 1;
 			}
-			printf("%d\n", game->col);
 			if (mapX < 0 || mapY < 0 || mapX >= game->row || mapY >= game->col)
 				break ;
 			if (game->map[mapY][mapX] == '1' || game->map[mapY][mapX] == '2')
@@ -144,8 +143,6 @@ int	main(int argc, char *argv[])
 =============================================================================
 */
 
-	game.planeX = 0.0;
-	game.planeY = 0.6;
 /*
 =============================================================================
 =============================================================================
