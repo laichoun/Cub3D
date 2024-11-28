@@ -11,7 +11,6 @@ void	init_blank_game(t_game *gamep)
 	gamep->win = NULL;
 	gamep->img_game = NULL;
 	gamep->img_minimap = NULL;
-	gamep->ray = NULL;
 }
 
 void	blank_textures(t_game *gamep)

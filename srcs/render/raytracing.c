@@ -83,9 +83,9 @@ int		render(t_game *game)
 				hit = 1;
 		}
 		if (game->side == 0)
-			game->dist_perp_x = (game->side_dist_x - game->delta_x);
+			game->dist_perp = (game->side_dist_x - game->delta_x);
 		else
-			game->dist_perp_y = (game->side_dist_y - game->delta_y);
+			game->dist_perp = (game->side_dist_y - game->delta_y);
 		draw_vertline(game, x);
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);

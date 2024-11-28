@@ -97,12 +97,10 @@ int	init_game_data(t_game *gamep, t_file *file)
 	init_blank_game(gamep);
 	if (!file)
 		return (FAILURE);
-	gamep->ray = malloc(sizeof(t_ray));
-	if (gamep->ray == NULL)
-		return (err_msg(ERROR_MALLOC, NULL), FAILURE);
 	gamep->map = ft_dupsplit(file->map);
 	gamep->row = file->width;
 	gamep->col = file->height;
+	init_raycast(gamep, file);
 	set_player_dir(gamep, file);
 	set_textures(gamep, file);
 	if (init_mlx(gamep, file))

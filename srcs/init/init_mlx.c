@@ -11,8 +11,6 @@ int	init_mlx(t_game *game, t_file *file)
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		return (err_msg(ERROR_MLX, NULL), FAILURE);
-	game->width = WIDTH;
-	game->height = HEIGHT;
 	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "Cub3D");
 	game->screen = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	game->textures.img_no = mlx_xpm_file_to_image(
