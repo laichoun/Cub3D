@@ -26,8 +26,8 @@ typedef struct s_textures
 	t_img		*img_so;
 	t_img		*img_ea;
 	t_img		*img_we;
-	int			f_rgb[3];
-	int			c_rgb[3];
+	int			f_rgb;
+	int			c_rgb;
 }				t_textures;
 
 typedef struct s_game

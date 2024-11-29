@@ -110,11 +110,7 @@ int	init_game_data(t_game *gamep, t_file *file)
 
 int		set_textures(t_game *game, t_file *file)
 {
-	game->textures.f_rgb[0] = file->f_rgb[0];
-	game->textures.f_rgb[1] = file->f_rgb[1];
-	game->textures.f_rgb[2] = file->f_rgb[2];
-	game->textures.c_rgb[0] = file->c_rgb[0];
-	game->textures.c_rgb[1] = file->c_rgb[1];
-	game->textures.c_rgb[2] = file->c_rgb[2];
+	game->textures.f_rgb = (file->f_rgb[0] << 16) | (file->f_rgb[1] << 8) | file->f_rgb[2]; 
+	game->textures.c_rgb = (file->c_rgb[0] << 16) | (file->c_rgb[1] << 8) | file->c_rgb[2]; 
 	return (SUCCESS);
 }
