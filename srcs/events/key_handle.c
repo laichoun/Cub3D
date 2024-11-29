@@ -11,9 +11,9 @@ int	key_handle(int key, t_game *game)
 	if (key == XK_s)
 		s_key(game);
 	if (key == XK_a)
-		game->pos_y -= 0.1;
+		a_key(game);
 	if (key == XK_d)
-		game->pos_y += 0.1;
+		d_key(game);
 	if (key == 65363)
 		right_arrow_key(game);
 	if (key == 65361)
