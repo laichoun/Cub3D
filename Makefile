@@ -17,16 +17,22 @@ SRC_FILES =	main.c \
 			init/check_file.c \
 			init/check_texture.c \
 			init/init_map.c \
+			init/init_raycast.c \
 			init/init_map_utils.c \
 			init/init_game.c \
 			init/init_mlx.c \
 			init/init_blank_game.c \
+			init/init_dir.c \
 			init/check_map.c \
 			utils/display.c \
 			utils/error.c \
 			utils/free.c \
+			render/raycasting.c \
+			render/mlx_draw_vertline.c \
 			events/key_handle.c \
-			events/close_window.c
+			events/close_window.c \
+			events/movement_keys.c \
+			events/rotation_keys.c \
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
 

@@ -92,35 +92,6 @@ int	set_variable(t_file *file)
 	return (SUCCESS);
 }
 
-int	set_dir(t_game *gamep, t_file *file)
-{
-	if (file->dir == 'N')
-	{
-		gamep->dir[0] = 0;
-		gamep->dir[1] = -1;
-		gamep->angle = 90;
-	}
-	else if (file->dir == 'S')
-	{
-		gamep->dir[0] = 0;
-		gamep->dir[1] = 1;
-		gamep->angle = 270;
-	}
-	else if (file->dir == 'E')
-	{
-		gamep->dir[0] = 1;
-		gamep->dir[1] = 0;
-		gamep->angle = 360;
-	}
-	else if (file->dir == 'W')
-	{
-		gamep->dir[0] = -1;
-		gamep->dir[1] = 0;
-		gamep->angle = 180;
-	}
-	return (SUCCESS);
-}
-
 int	init_game_data(t_game *gamep, t_file *file)
 {
 	init_blank_game(gamep);
@@ -129,9 +100,8 @@ int	init_game_data(t_game *gamep, t_file *file)
 	gamep->map = ft_dupsplit(file->map);
 	gamep->row = file->width;
 	gamep->col = file->height;
-	gamep->pos_x = (float) file->player_x;
-	gamep->pos_y = (float) file->player_y;
-	set_dir(gamep, file);
+	init_raycast(gamep, file);
+	set_player_dir(gamep, file);
 	set_textures(gamep, file);
 	if (init_mlx(gamep, file))
 		return (free_game(gamep), FAILURE);
@@ -140,11 +110,7 @@ int	init_game_data(t_game *gamep, t_file *file)
 
 int		set_textures(t_game *game, t_file *file)
 {
-	game->textures.f_rgb[0] = file->f_rgb[0];
-	game->textures.f_rgb[1] = file->f_rgb[1];
-	game->textures.f_rgb[2] = file->f_rgb[2];
-	game->textures.c_rgb[0] = file->c_rgb[0];
-	game->textures.c_rgb[1] = file->c_rgb[1];
-	game->textures.c_rgb[2] = file->c_rgb[2];
+	game->textures.f_rgb = (file->f_rgb[0] << 16) | (file->f_rgb[1] << 8) | file->f_rgb[2]; 
+	game->textures.c_rgb = (file->c_rgb[0] << 16) | (file->c_rgb[1] << 8) | file->c_rgb[2]; 
 	return (SUCCESS);
 }

@@ -15,10 +15,9 @@ void display_game_data(t_game game)
 		ft_printf("\n");
 	}
 	ft_printf("num of row: %d\nnum of col: %d\n", game.row, game.col);
-	ft_printf("Floor: (%d,%d,%d)\n", game.textures.f_rgb[0], game.textures.f_rgb[1],
-			game.textures.f_rgb[2]);
-	ft_printf("Ceiling: (%d,%d,%d)\n", game.textures.c_rgb[0], game.textures.c_rgb[1],
-			game.textures.c_rgb[2]);
+	ft_printf("Floor: (%d)\n", game.textures.f_rgb);
+	ft_printf("Ceiling: (%d)\n", game.textures.c_rgb);
+	ft_printf("Player pos: (%d,%d)\n", game.pos_x, game.pos_y);
 }
 
 void	display_file(t_file f)

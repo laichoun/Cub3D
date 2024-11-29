@@ -19,10 +19,6 @@ void	blank_textures(t_game *gamep)
 	gamep->textures.img_so = NULL;
 	gamep->textures.img_ea = NULL;
 	gamep->textures.img_we = NULL;
-	gamep->textures.f_rgb[0] = -1;
-	gamep->textures.f_rgb[1] = -1;
-	gamep->textures.f_rgb[2] = -1;
-	gamep->textures.c_rgb[0] = -1;
-	gamep->textures.c_rgb[1] = -1;
-	gamep->textures.c_rgb[2] = -1;
+	gamep->textures.f_rgb = -1;
+	gamep->textures.c_rgb = -1;
 }
