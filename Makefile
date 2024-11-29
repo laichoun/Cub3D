@@ -27,7 +27,7 @@ SRC_FILES =	main.c \
 			utils/display.c \
 			utils/error.c \
 			utils/free.c \
-			render/raytracing.c \
+			render/raycasting.c \
 			render/mlx_draw_vertline.c \
 			events/key_handle.c \
 			events/close_window.c \

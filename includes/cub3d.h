@@ -75,6 +75,8 @@ int		init_raycast(t_game *game, t_file *file);
 //mlx helper
 void	draw_vertline(t_game *game, int x);
 
+//render
+int	render(t_game *game);
 // key_handle
 int		key_handle(int key, t_game *game);
 int		close_window(t_game *game);
