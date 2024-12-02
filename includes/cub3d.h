@@ -17,6 +17,9 @@
 # define WIDTH 1280
 # define HEIGHT 720
 
+# define TEXT_WIDTH 64
+# define TEXT_HEIGHT 64
+
 # define ROT_SPEED 0.05
 # define MOVE_SPEED 0.15
 
@@ -39,7 +42,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	t_img		*screen;
-	t_img		*img_game;
+	t_img		*img_game; //useful ?
 	t_img		*img_minimap;
 	float		pos_x;
 	float		pos_y;
@@ -60,6 +63,9 @@ typedef struct s_game
 	int			step_x;
 	int			step_y;
 	int			side;
+	float		hit_wall;
+	int			tex_x;
+	int			tex_y;
 }				t_game;
 
 // init how to name functions? initGameAssets? or parseGameDAta? load_gameData?
