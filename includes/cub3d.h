@@ -14,14 +14,23 @@
 # define SUCCESS 0
 # define FAILURE 1
 
+//# define WIDTH 1280
+//# define HEIGHT 720
 # define WIDTH 1920
 # define HEIGHT 1080
 
-//# define TEXT_WIDTH 64
-//# define TEXT_HEIGHT 64
+# define ROT_SPEED 0.02
+# define MOVE_SPEED 0.1
 
-# define ROT_SPEED 0.05
-# define MOVE_SPEED 0.15
+enum {
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+	ON_MOUSEMOVE = 6,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17
+};
 
 typedef struct s_textures
 {
@@ -57,6 +66,7 @@ typedef struct s_game
 	float		delta_y;
 	float		dist_perp;
 	float		ratio;
+	int			old_mpos_x;
 	int			ray_pos_x;
 	int			ray_pos_y;
 	int			step_x;
@@ -94,6 +104,8 @@ void	s_key(t_game *game);
 void	a_key(t_game *game);
 void	right_arrow_key(t_game *game);
 void	left_arrow_key(t_game *game);
+void	hide_show_mouse(t_game *game);
+int		mouse_handle(int x, int y, t_game *game);
 // error
 void	err_msg(int err_code, char *msg);
 
