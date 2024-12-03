@@ -1,16 +1,15 @@
-NO textures/wolfenstein/greystone.xpm
-SO textures/wolfenstein/purplestone.xpm
-WE textures/wolfenstein/redbrick.xpm
-EA textures/wolfenstein/wood.xpm
+NO textures/xmas/candycan.xpm
+SO textures/xmas/snowman.xpm
+WE textures/xmas/cadeau.xpm
+EA textures/xmas/santa.xpm
 
-F 66,66,66
-C 55,44,44
-
+F 198, 245, 255
+C 59, 71, 148
 
         1111111111111111111111111
         1000000000110000000000001
         1011000001110000000000001
-        1001000000000000000W00001
+        1001000000000000000N00001
 111111111011000001110000000000001
 100000000011000001110111111111111
 11110111111111011100000010001

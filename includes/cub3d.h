@@ -51,8 +51,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	t_img		*screen;
-	t_img		*img_game;
-	t_img		*img_minimap;
+	t_img		*cur_tex;
 	float		pos_x;
 	float		pos_y;
 	float		dir_x;
@@ -73,6 +72,11 @@ typedef struct s_game
 	int			step_x;
 	int			step_y;
 	int			side;
+	float		hit_wall;
+	int			tex_x;
+	int			tex_y;
+	float		tex_pos;
+	float		tex_step;
 }				t_game;
 
 // init how to name functions? initGameAssets? or parseGameDAta? load_gameData?
