@@ -63,8 +63,8 @@ typedef struct s_game
 	int			step_y;
 	int			side;
 	float		hit_wall;
-	int			tex_x;
-	float		tex_y;
+	int   	tex_x;
+	int		tex_y;
 	float		tex_pos;
 	float		tex_step;
 

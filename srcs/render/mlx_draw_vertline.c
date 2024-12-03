@@ -128,8 +128,8 @@ void	draw_vertline(t_game *game, int x)
 	if (game->side == 1 && game->dir_ray_y < 0)
 		game->tex_x = game->cur_tex->width - game->tex_x - 1;
 	// How much to increase the texture coordinate per screen pixel
-	game->tex_step = game->cur_tex->width / line_height;
+	game->tex_step = (float)game->cur_tex->width / line_height;
 	// Starting texture coordinate
-	game->tex_pos = (start - HEIGHT / 2 + line_height / 2) * game->tex_step;
+	game->tex_pos = (start - (float)HEIGHT / 2 + (float)line_height / 2) * game->tex_step;
 	mlx_draw_vertline_texutre(x, start, end, game);
 }
