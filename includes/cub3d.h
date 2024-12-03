@@ -19,8 +19,8 @@
 # define WIDTH 1920
 # define HEIGHT 1080
 
-# define ROT_SPEED 0.05
-# define MOVE_SPEED 0.15
+# define ROT_SPEED 0.02
+# define MOVE_SPEED 0.1
 
 enum {
 	ON_KEYDOWN = 2,

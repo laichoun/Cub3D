@@ -8,15 +8,10 @@ int	mouse_handle(int x, int y, t_game *game)
 	(void) x;
 	(void) y;
 	if (game->old_mpos_x < x || game->old_mpos_x == WIDTH - 1)
-	{
 		mouse_right(game);
-		game->old_mpos_x = x;
-	}
 	else if (game->old_mpos_x > 0 || game->old_mpos_x == 0)
-	{
 		mouse_left(game);
-		game->old_mpos_x = x;
-	}
+	game->old_mpos_x = x;
 	return (SUCCESS);
 }
 
@@ -40,7 +35,7 @@ static void	mouse_right(t_game *game)
 {
 	float		temp_dir_x;
 	float		temp_plane_x;
-	const float	mouse_rot = 0.015;
+	const float	mouse_rot = 0.007;
 
 	temp_plane_x = game->dir_plane_x;
 	temp_dir_x = game->dir_x;
@@ -56,7 +51,7 @@ static void	mouse_left(t_game *game)
 {
 	float		temp_dir_x;
 	float		temp_plane_x;
-	const float	mouse_rot = 0.015;
+	const float	mouse_rot = 0.007;
 
 	temp_plane_x = game->dir_plane_x;
 	temp_dir_x = game->dir_x;
