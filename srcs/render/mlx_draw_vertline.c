@@ -72,7 +72,7 @@ static void	mlx_draw_vertline_texutre(int x, int drawStart, int drawEnd,
 	while (y <= HEIGHT)
 	{
 		if (y < drawStart)
-			dst[y * size_line / 4 + x] = game->textures.c_rgb;
+			dst[y * size_line / 4 + x] = (game->textures.c_rgb >> 1) & 0x7F7F7F;
 		else if (drawStart <= y && y <= drawEnd)
 		{
 			// Calculer la coordonnée y de la texture
@@ -82,12 +82,12 @@ static void	mlx_draw_vertline_texutre(int x, int drawStart, int drawEnd,
 			color = texture_data[(int)game->tex_y * game->cur_tex->width + game->tex_x];
 			// Assombrir légèrement si c'est un mur sur le côté secondaire
 				//if (game->side == 1)
-				//	color = (color >> 1) & 0x7F7F7F;
+					color = (color >> 1) & 0x7F7F7F;
 			// Dessiner le pixel
 			dst[y * size_line / 4 + x] = color;
 		}
 		else
-			dst[y * size_line / 4 + x] = game->textures.f_rgb;
+			dst[y * size_line / 4 + x] = (game->textures.f_rgb >> 1) & 0x7F7F7F;
 		++y;
 	}
 }
