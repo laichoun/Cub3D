@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_draw_vertline.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/04 11:28:41 by pibernar          #+#    #+#             */
+/*   Updated: 2024/12/04 11:28:49 by pibernar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 void	set_cur_texture(t_game *game)
@@ -20,7 +32,6 @@ void	set_cur_texture(t_game *game)
 
 // to make it darker
 // color = (color >> 1) & 0x7F7F7F;
-
 static void	mlx_draw_vertline_texutre(int x, int drawStart, int drawEnd,
 		t_game *g)
 {
