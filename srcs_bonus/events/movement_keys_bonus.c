@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:28 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:17:05 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:38:08 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,29 @@ void	d_key(t_game *game)
 		[(int)(game->pos_y + new_dir[1] * MOVE_SPEED / 2 + hitbox_y)]
 		[(int)(game->pos_x - hitbox)] != '1'))
 		game->pos_y += new_dir[1] * MOVE_SPEED / 2;
+}
+
+void	space_key(t_game *game)
+{
+	int		x;
+	int		y;
+	int		i;
+	int		j;
+	char	**map;
+
+	i = -2;
+	map = game->map;
+	x = (int)game->pos_x;
+	y = (int)game->pos_y;
+	while (++i < 2)
+	{
+		j = -2;
+		while (++j < 2)
+		{
+			if (map[y + j][x + i] == 'D')
+				map[y + j][x + i] = 'O';
+			else if (map[y + j][x + i] == 'O')
+				map[y + j][x + i] = 'D';
+		}
+	}
 }

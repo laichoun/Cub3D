@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:38 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:16:35 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:06:37 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ int	render(t_game *game)
 		while (hit == 0)
 		{
 			compute_rays(game);
-			if (game->map[game->ray_pos_y][game->ray_pos_x] == '1')
+			if (game->map[game->ray_pos_y][game->ray_pos_x] == '1'
+			|| game->map[game->ray_pos_y][game->ray_pos_x] == 'D')
 				hit = 1;
 		}
 		if (game->side == 0)
