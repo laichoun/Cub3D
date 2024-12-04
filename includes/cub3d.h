@@ -22,7 +22,8 @@
 # define ROT_SPEED 0.02
 # define MOVE_SPEED 0.1
 
-enum {
+enum
+{
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -77,46 +78,44 @@ typedef struct s_game
 	int			tex_y;
 	float		tex_pos;
 	float		tex_step;
-
-
-	int	bpp;
-	int	size_line;
-	int	endian;
-	int	texture_bpp;
-	int	texture_size_line;
-	int	texture_endian;
+	int			bpp;
+	int			size_line;
+	int			endian;
+	int			texture_bpp;
+	int			texture_size_line;
+	int			texture_endian;
 }				t_game;
 
 // init how to name functions? initGameAssets? or parseGameDAta? load_gameData?
-int		init_game(t_game *game, char *filename);
-int		init_game_data(t_game *gamep, t_file *data);
-void	init_blank_game(t_game *gamep);
-int		init_mlx(t_game *game, t_file *file);
-void	free_game(t_game *game);
-void	skip_newlines(t_file *file, int *i);
-int		set_player_dir(t_game *gamep, t_file *file);
-int		init_raycast(t_game *game, t_file *file);
+int				init_game(t_game *game, char *filename);
+int				init_game_data(t_game *gamep, t_file *data);
+void			init_blank_game(t_game *gamep);
+int				init_mlx(t_game *game, t_file *file);
+void			free_game(t_game *game);
+void			skip_newlines(t_file *file, int *i);
+int				set_player_dir(t_game *gamep, t_file *file);
+int				init_raycast(t_game *game, t_file *file);
 
-//mlx helper
-void	draw_vertline(t_game *game, int x);
+// mlx helper
+void			draw_vertline(t_game *game, int x);
 
-//render
-int	render(t_game *game);
+// render
+int				render(t_game *game);
 // key_handle
-int		key_handle(int key, t_game *game);
-int		close_window(t_game *game);
-//keys
-void	d_key(t_game *game);
-void	w_key(t_game *game);
-void	s_key(t_game *game);
-void	a_key(t_game *game);
-void	right_arrow_key(t_game *game);
-void	left_arrow_key(t_game *game);
-void	hide_show_mouse(t_game *game);
-int		mouse_handle(int x, int y, t_game *game);
+int				key_handle(int key, t_game *game);
+int				close_window(t_game *game);
+// keys
+void			d_key(t_game *game);
+void			w_key(t_game *game);
+void			s_key(t_game *game);
+void			a_key(t_game *game);
+void			right_arrow_key(t_game *game);
+void			left_arrow_key(t_game *game);
+void			hide_show_mouse(t_game *game);
+int				mouse_handle(int x, int y, t_game *game);
 // error
-void	err_msg(int err_code, char *msg);
+void			err_msg(int err_code, char *msg);
 
 // displays
-void	display_game_data(t_game game);
+void			display_game_data(t_game game);
 #endif
