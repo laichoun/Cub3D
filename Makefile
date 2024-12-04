@@ -40,6 +40,39 @@ SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 OBJS = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 
+#BONUS
+BNAME = Cub3D_bonus
+BSRC_DIR = ./srcs_bonus/
+BOBJ_DIR = ./objs_bonus/
+
+BSRC_FILES =	main_bonus.c \
+			init/file_utils_bonus.c \
+			init/check_file_bonus.c \
+			init/check_texture_bonus.c \
+			init/init_map_bonus.c \
+			init/init_raycast_bonus.c \
+			init/init_map_utils_bonus.c \
+			init/init_game_bonus.c \
+			init/init_game_utils_bonus.c \
+			init/init_mlx_bonus.c \
+			init/init_blank_game_bonus.c \
+			init/init_dir_bonus.c \
+			init/check_map_bonus.c \
+			utils/display_bonus.c \
+			utils/error_bonus.c \
+			utils/free_bonus.c \
+			render/raycasting_bonus.c \
+			render/mlx_draw_vertline_bonus.c \
+			events/key_handle_bonus.c \
+			events/mouse_handle_bonus.c \
+			events/close_window_bonus.c \
+			events/movement_keys_bonus.c \
+			events/rotation_keys_bonus.c \
+
+BSRCS = $(addprefix $(BSRC_DIR), $(BSRC_FILES))
+
+BOBJS = $(addprefix $(BOBJ_DIR), $(BSRC_FILES:.c=.o))
+
 #MLX
 # je sais pas pq le flag -lmlx_Linux compile pas check si tu as ces flags
 # I don't know why the flag -lmlx_Linux doesn't compile. help
@@ -69,6 +102,20 @@ $(OBJ_DIR):
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
+bonus: $(MLX) $(LIBFT) $(BOBJ_DIR) $(BOBJS)
+	$(CC) $(CFLAGS) $(INC) $(BOBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(BNAME)
+	@echo "$(GREEN) $(BNAME) compiled successfully!$(RESET)"
+
+$(BOBJ_DIR):
+	mkdir -p $(BOBJ_DIR)
+	mkdir -p $(BOBJ_DIR)init
+	mkdir -p $(BOBJ_DIR)utils
+	mkdir -p $(BOBJ_DIR)render
+	mkdir -p $(BOBJ_DIR)events
+
+$(BOBJ_DIR)%.o: $(BSRC_DIR)%.c
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
@@ -79,11 +126,13 @@ clean:
 	make -C $(LIBFT_DIR) clean
 	make -C $(MLX_PATH) clean
 	rm -rf $(OBJ_DIR)
+	rm -rf $(BOBJ_DIR)
 
 fclean: clean
 	rm -f $(LIBFT)
 	rm -f $(MLX)
 	rm -f $(NAME)
+	rm -f $(BNAME)
 
 re: fclean all
 
