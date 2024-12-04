@@ -20,6 +20,7 @@ SRC_FILES =	main.c \
 			init/init_raycast.c \
 			init/init_map_utils.c \
 			init/init_game.c \
+			init/init_game_utils.c \
 			init/init_mlx.c \
 			init/init_blank_game.c \
 			init/init_dir.c \

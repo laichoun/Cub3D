@@ -4,6 +4,7 @@ int		init_game_data(t_game *gamep, t_file *file);
 int		check_extension(char *filename, char *ext);
 int		set_textures(t_game *game, t_file *file);
 void	init_blank_game(t_game *gamp);
+int		set_file_colors(t_file *file, char **tab);
 
 int	init_game(t_game *gamep, char *filename)
 {
@@ -24,65 +25,48 @@ int	init_game(t_game *gamep, char *filename)
 	return (free_file(&file), SUCCESS);
 }
 
-int	set_file_colors(t_file *file, char **tab)
+int	check_setvar(t_file *file, int i)
 {
-	if (!file || !tab)
-		return (err_msg(0, NULL), FAILURE);
-	if (!ft_strcmp(tab[0], "F"))
+	char	**tab;
+	int		size;
+
+	tab = ft_strtok(file->cp_file[i], " ,\n");
+	if (!tab)
+		return (err_msg(ERROR_MALLOC, NULL), FAILURE);
+	size = ft_split_size(tab);
+	if (size == 0)
 	{
-		if (!ft_isnumber(tab[1]) || !ft_isnumber(tab[2])
-			|| !ft_isnumber(tab[3]))
-			return (err_msg(ERROR_INVALID_RGB, NULL), FAILURE);
-		++file->f;
-		file->f_rgb[0] = ft_atoi(tab[1]);
-		file->f_rgb[1] = ft_atoi(tab[2]);
-		file->f_rgb[2] = ft_atoi(tab[3]);
+		ft_free_split(tab);
+		return (-10);
 	}
-	else if (!ft_strcmp(tab[0], "C"))
-	{
-		if (!ft_isnumber(tab[1]) || !ft_isnumber(tab[2])
-			|| !ft_isnumber(tab[3]))
-			return (err_msg(ERROR_INVALID_RGB, NULL), FAILURE);
-		++file->c;
-		file->c_rgb[0] = ft_atoi(tab[1]);
-		file->c_rgb[1] = ft_atoi(tab[2]);
-		file->c_rgb[2] = ft_atoi(tab[3]);
-	}
-	else
-		return (err_msg(ERROR_INVALID_ID, NULL), FAILURE);
+	if (size != 2 && size != 4)
+		return (ft_free_split(tab), err_msg(ERROR_MISSING_INFO, 0),
+			FAILURE);
+	if (size == 2)
+		if (set_cardinal_points(file, tab))
+			return (ft_free_split(tab), FAILURE);
+	if (size == 4)
+		if (set_file_colors(file, tab))
+			return (ft_free_split(tab), FAILURE);
+	ft_free_split(tab);
 	return (SUCCESS);
 }
 
 int	set_variable(t_file *file)
 {
 	int		i;
-	char	**tab;
-	int		size;
+	int		check;
 	int		count;
 
 	i = -1;
 	count = 0;
 	while (file->cp_file[++i])
 	{
-		tab = ft_strtok(file->cp_file[i], " ,\n");
-		if (!tab)
-			return (err_msg(ERROR_MALLOC, NULL), FAILURE);
-		size = ft_split_size(tab);
-		if (size == 0)
-		{
-			ft_free_split(tab);
+		check = check_setvar(file, i);
+		if (check == -10)
 			continue ;
-		}
-		if (size != 2 && size != 4)
-			return (ft_free_split(tab), err_msg(ERROR_MISSING_INFO, 0),
-				FAILURE);
-		if (size == 2)
-			if (set_cardinal_points(file, tab))
-				return (ft_free_split(tab), FAILURE);
-		if (size == 4)
-			if (set_file_colors(file, tab))
-				return (ft_free_split(tab), FAILURE);
-		ft_free_split(tab);
+		else if (check)
+			return (FAILURE);
 		if (++count == 6)
 			break ;
 	}
@@ -108,14 +92,5 @@ int	init_game_data(t_game *gamep, t_file *file)
 	set_textures(gamep, file);
 	if (init_mlx(gamep, file))
 		return (free_game(gamep), FAILURE);
-	return (SUCCESS);
-}
-
-int	set_textures(t_game *game, t_file *file)
-{
-	game->textures.f_rgb
-		= (file->f_rgb[0] << 16) | (file->f_rgb[1] << 8) | file->f_rgb[2];
-	game->textures.c_rgb
-		= (file->c_rgb[0] << 16) | (file->c_rgb[1] << 8) | file->c_rgb[2];
 	return (SUCCESS);
 }
