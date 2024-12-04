@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:17 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:29:18 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:49:29 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	print_error_message_2(int err_code, char *info)
 		ft_fprintf(2, "Error: No file extension\n");
 	else if (err_code == ERROR_FILE)
 		ft_fprintf(2, "Error: Invalid file name: %s\n", info);
+	else if (err_code == ERROR_CHAR)
+		ft_fprintf(2, "Error: Wrong components\n");
 }
 
 /*

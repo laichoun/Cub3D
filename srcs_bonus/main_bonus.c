@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:30:08 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:13:08 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:55:07 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,37 @@ static void	looping_youhouuuuuuuuuuuuuuu(t_game *game)
 		game);
 	mlx_loop(game->mlx);
 }
+
+/*
+static void	creation_minimap(t_game *game)
+{
+	mlx_loop_hook(game->mlx, minimap, game);
+	mlx_loop(game->mlx);
+}
+
+void	minimap(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < game->col)
+	{
+		j = 0;
+		while (j < game->row)
+		{
+			if (game->map[i][j] == '1')
+				draw_wall(game);
+			else if (game->map[i][j] == '0')
+				draw_floor(game);
+			j ++;
+		}
+		i ++;
+	}
+}
+
+void	draw_wall(t_game *game)
+{
+	
+}
+*/

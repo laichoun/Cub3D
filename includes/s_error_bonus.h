@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:09 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:24:09 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:39:35 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@
 # define ERROR_WRONG_EXTENSION 17
 # define ERROR_NO_EXTENSION 18
 # define ERROR_FILE 19
+# define ERROR_CHAR 20
 
 #endif

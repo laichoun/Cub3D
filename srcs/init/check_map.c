@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:49 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:26:50 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:54:09 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,37 @@ int	is_map_valid(t_file *file);
 int	is_valid_row(t_file *file);
 int	is_valid_col(t_file *file);
 int	check_player(t_file *file);
+int	check_components(t_file *file);
 
 int	is_map_valid(t_file *file)
 {
-	if ((is_valid_row(file) == SUCCESS && is_valid_col(file) == SUCCESS
-			&& check_player(file) == SUCCESS))
+	if ((check_components(file) == SUCCESS && is_valid_row(file) == SUCCESS
+			&& is_valid_col(file) == SUCCESS && check_player(file) == SUCCESS))
 		return (SUCCESS);
 	return (FAILURE);
+}
+
+int	check_components(t_file *file)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < file->height)
+	{
+		j = 0;
+		while (j < file->width)
+		{
+			if (file->map[i][j] != 'N' && file->map[i][j] != 'S'
+				&& file->map[i][j] != 'W' && file->map[i][j] != 'E'
+				&& file->map[i][j] != '1' && file->map[i][j] != '0'
+				&& file->map[i][j] != ' ')
+				return (err_msg(ERROR_CHAR, NULL), FAILURE);
+			j++;
+		}
+		i++;
+	}
+	return (SUCCESS);
 }
 
 int	check_player(t_file *file)
