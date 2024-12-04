@@ -4,7 +4,6 @@ void	free_game(t_game *game)
 {
 	ft_free_split(game->map);
 	mlx_destroy_image(game->mlx, game->screen);
-	//mlx_destroy_image(game->mlx, game->img_minimap);
 	mlx_destroy_image(game->mlx, game->textures.img_no);
 	mlx_destroy_image(game->mlx, game->textures.img_so);
 	mlx_destroy_image(game->mlx, game->textures.img_ea);
@@ -14,7 +13,7 @@ void	free_game(t_game *game)
 	free(game->mlx);
 }
 
-void		free_file(t_file *filep)
+void	free_file(t_file *filep)
 {
 	ft_free_split(filep->cp_file);
 	ft_free_split(filep->map);

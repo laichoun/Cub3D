@@ -81,9 +81,9 @@ typedef struct s_game
 	int			bpp;
 	int			size_line;
 	int			endian;
-	int			texture_bpp;
-	int			texture_size_line;
-	int			texture_endian;
+	int			tex_bpp;
+	int			tex_size_line;
+	int			tex_endian;
 }				t_game;
 
 // init how to name functions? initGameAssets? or parseGameDAta? load_gameData?

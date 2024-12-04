@@ -1,7 +1,7 @@
 #include "../../includes/cub3d.h"
 
-//TODO: Rework this shit
-void err_msg(int err_code, char *info)
+// TODO: Rework this shit
+void	err_msg(int err_code, char *info)
 {
 	if (err_code == ERROR_OPEN)
 		ft_fprintf(2, "Error: Failed to open file %s\n", info);
@@ -22,7 +22,9 @@ void err_msg(int err_code, char *info)
 	else if (err_code == ERROR_INVALID_ID)
 		ft_fprintf(2, "ERROR: Invalid color identifier\n");
 	else if (err_code == ERROR_INVALID_RGB)
-		ft_fprintf(2, "Error: Color code is not a number, is exceeding 255 or is a negative color code\n");
+		ft_fprintf(2,
+					"Error: Color code is not a number"
+					",is exceeding 255 or is a negative color code\n");
 	else if (err_code == ERROR_CARDINAL_DUP_MISS)
 		ft_fprintf(2, "Error: Cardinal missing or repeat.\n");
 	else if (err_code == ERROR_WRONG_CARDINAL)
@@ -44,4 +46,3 @@ void err_msg(int err_code, char *info)
 	else
 		ft_fprintf(2, "Error: unexpected %d\n", err_code);
 }
-

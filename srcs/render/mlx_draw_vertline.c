@@ -18,39 +18,36 @@ void	set_cur_texture(t_game *game)
 	}
 }
 
+// to make it darker
+// color = (color >> 1) & 0x7F7F7F;
+
 static void	mlx_draw_vertline_texutre(int x, int drawStart, int drawEnd,
 		t_game *g)
 {
 	int	y;
 	int	*dst;
 	int	color;
-	int	*texture_data;
+	int	*tex_data;
 
 	dst = (int *)mlx_get_data_addr(g->screen, &g->bpp, &g->size_line,
 			&g->endian);
-	texture_data = (int *)mlx_get_data_addr(g->cur_tex, &g->texture_bpp,
-			&g->texture_size_line, &g->texture_endian);
-	y = 0;
-	while (y <= HEIGHT)
+	tex_data = (int *)mlx_get_data_addr(g->cur_tex, &g->tex_bpp,
+			&g->tex_size_line, &g->tex_endian);
+	y = -1;
+	while (++y <= HEIGHT)
 	{
 		if (y < drawStart)
 			dst[y * g->size_line / 4 + x] = (g->textures.c_rgb >> 1) & 0x7F7F7F;
 		else if (drawStart <= y && y <= drawEnd)
 		{
-			// Calculer la coordonnée y de la texture
 			g->tex_y = (int)g->tex_pos & (g->cur_tex->height - 1);
 			g->tex_pos += g->tex_step;
-			// Obtenir la couleur du pixel de texture
-			color = texture_data[(int)g->tex_y * g->cur_tex->width + g->tex_x];
-			// Assombrir légèrement si c'est un mur sur le côté secondaire
-			// if (game->side == 1)
+			color = tex_data[(int)g->tex_y * g->cur_tex->width + g->tex_x];
 			color = (color >> 1) & 0x7F7F7F;
-			// Dessiner le pixel
 			dst[y * g->size_line / 4 + x] = color;
 		}
 		else
 			dst[y * g->size_line / 4 + x] = (g->textures.f_rgb >> 1) & 0x7F7F7F;
-		++y;
 	}
 }
 
