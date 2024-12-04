@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_blank_game.c                                  :+:      :+:    :+:   */
+/*   init_blank_game_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:11 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:27:12 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:17:21 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 void	blank_textures(t_game *gamep);
 

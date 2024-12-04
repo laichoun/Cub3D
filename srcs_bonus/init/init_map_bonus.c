@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_map.c                                         :+:      :+:    :+:   */
+/*   init_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:49 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:27:49 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:15:20 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 static int	set_map(t_file *file);
 static int	set_map_param(t_file *file);

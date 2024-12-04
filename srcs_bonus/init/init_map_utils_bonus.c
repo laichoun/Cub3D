@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_map_utils.c                                   :+:      :+:    :+:   */
+/*   init_map_utils_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:52 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:27:53 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:18:03 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 int			ft_isempty_line(char *s);
 

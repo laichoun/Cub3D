@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_texture.c                                    :+:      :+:    :+:   */
+/*   check_texture_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:01 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:27:02 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:18:43 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 static int	set_param(char **texture, char *filename, int *count);
 

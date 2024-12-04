@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse_handle.c                                     :+:      :+:    :+:   */
+/*   mouse_handle_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:19 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:28:21 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:17:44 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 static void	mouse_right(t_game *game);
 static void	mouse_left(t_game *game);

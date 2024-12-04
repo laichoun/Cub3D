@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   display_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:00 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:29:22 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:14:45 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 void	display_game_data(t_game game)
 {

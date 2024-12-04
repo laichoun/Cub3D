@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_handle.c                                       :+:      :+:    :+:   */
+/*   key_handle_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:14 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:28:16 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:18:19 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 int	key_handle(int key, t_game *game)
 {

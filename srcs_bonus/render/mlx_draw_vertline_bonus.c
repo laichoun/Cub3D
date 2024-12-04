@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_draw_vertline.c                                :+:      :+:    :+:   */
+/*   mlx_draw_vertline_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:41 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:28:49 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:16:55 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 void	set_cur_texture(t_game *game)
 {

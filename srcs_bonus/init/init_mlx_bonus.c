@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   init_mlx_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:57 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:27:58 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:15:09 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
-// Should mlx_new_image be called here?
-// TODO: check NULL returns
 int	init_mlx(t_game *game, t_file *file)
 {
 	int	w;

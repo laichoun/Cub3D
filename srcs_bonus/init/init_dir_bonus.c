@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dir.c                                         :+:      :+:    :+:   */
+/*   init_dir_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:17 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:27:19 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:15:29 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 static void	set_dir(t_game *gamep, int dir_x, int dir_y)
 {

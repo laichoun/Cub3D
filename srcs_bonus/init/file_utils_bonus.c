@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_utils.c                                       :+:      :+:    :+:   */
+/*   file_utils_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:05 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:27:06 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:16:16 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 static int	get_file_lines(char *file);
 static void	init_dim3_arr(int arr[3], int val);

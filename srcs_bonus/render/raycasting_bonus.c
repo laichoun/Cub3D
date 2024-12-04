@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.c                                       :+:      :+:    :+:   */
+/*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:38 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:28:39 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:16:35 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 #include <math.h>
 
 void	set_steps_dist(t_game *game)

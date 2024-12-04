@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game_utils.c                                  :+:      :+:    :+:   */
+/*   init_game_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:32 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:27:36 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:17:33 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 int	set_file_colors(t_file *file, char **tab)
 {

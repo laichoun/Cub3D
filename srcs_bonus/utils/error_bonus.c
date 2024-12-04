@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:17 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:29:18 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:14:34 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
-
-// TODO: Rework this shit
+#include "../../includes/cub3d_bonus.h"
 
 void	print_error_message_1(int err_code, char *info);
 void	print_error_message_2(int err_code, char *info);

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement_keys.c                                    :+:      :+:    :+:   */
+/*   movement_keys_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:28 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:28:29 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:17:05 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 void	w_key(t_game *game)
 {

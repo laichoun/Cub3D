@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotation_keys.c                                    :+:      :+:    :+:   */
+/*   rotation_keys_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:31 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:28:32 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:17:13 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 void	right_arrow_key(t_game *game)
 {
