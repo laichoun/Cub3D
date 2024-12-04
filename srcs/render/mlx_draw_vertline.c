@@ -1,32 +1,5 @@
 #include "../../includes/cub3d.h"
 
-/*
-static void	mlx_draw_vertline(int x, int drawStart, int drawEnd, int color,
-		t_game *game)
-{
-	int	*dst;
-	int	bpp;
-	int	size_line;
-	int	endian;
-	int	y;
-
-	dst = (int *)mlx_get_data_addr(game->screen, &bpp, &size_line, &endian);
-	y = 0;
-	while (y <= HEIGHT)
-	{
-		if (y < drawStart)
-			dst[y * size_line / 4 + x] = game->textures.c_rgb;
-		else if (drawStart <= y && y <= drawEnd)
-			dst[y * size_line / 4 + x] = color;
-		else
-			dst[y * size_line / 4 + x] = game->textures.f_rgb;
-		++y;
-	}
-}
-*/
-
-
-
 void	set_cur_texture(t_game *game)
 {
 	if (game->side == 0)
@@ -46,90 +19,68 @@ void	set_cur_texture(t_game *game)
 }
 
 static void	mlx_draw_vertline_texutre(int x, int drawStart, int drawEnd,
-		t_game *game)
+		t_game *g)
 {
-	int		*dst;
-	int		bpp;
-	int		size_line;
-	int		endian;
-	int		y;
-	int		*texture_data;
-	int		texture_bpp;
-	int		texture_size_line;
-	int		texture_endian;
-	int		color;
+	int	y;
+	int	*dst;
+	int	color;
+	int	*texture_data;
 
-
-	dst = (int *)mlx_get_data_addr(game->screen, &bpp, &size_line, &endian);
-	texture_data = (int *)mlx_get_data_addr(game->cur_tex, &texture_bpp,
-			&texture_size_line, &texture_endian);
-	// How much to increase the texture coordinate per screen pixel
-	//  game->tex_step = 1.0 * TEXT_WIDTH / line_height;
-	// Starting texture coordinate
-	//  game->tex_y = (drawStart - HEIGHT / 2 + line_height / 2)
-	//	* game->tex_step;
+	dst = (int *)mlx_get_data_addr(g->screen, &g->bpp, &g->size_line,
+			&g->endian);
+	texture_data = (int *)mlx_get_data_addr(g->cur_tex, &g->texture_bpp,
+			&g->texture_size_line, &g->texture_endian);
 	y = 0;
 	while (y <= HEIGHT)
 	{
 		if (y < drawStart)
-			dst[y * size_line / 4 + x] = (game->textures.c_rgb >> 1) & 0x7F7F7F;
+			dst[y * g->size_line / 4 + x] = (g->textures.c_rgb >> 1) & 0x7F7F7F;
 		else if (drawStart <= y && y <= drawEnd)
 		{
 			// Calculer la coordonnée y de la texture
-			game->tex_y = (int)game->tex_pos & (game->cur_tex->height - 1);
-			game->tex_pos += game->tex_step;
+			g->tex_y = (int)g->tex_pos & (g->cur_tex->height - 1);
+			g->tex_pos += g->tex_step;
 			// Obtenir la couleur du pixel de texture
-			color = texture_data[(int)game->tex_y * game->cur_tex->width + game->tex_x];
+			color = texture_data[(int)g->tex_y * g->cur_tex->width + g->tex_x];
 			// Assombrir légèrement si c'est un mur sur le côté secondaire
-				//if (game->side == 1)
-					color = (color >> 1) & 0x7F7F7F;
+			// if (game->side == 1)
+			color = (color >> 1) & 0x7F7F7F;
 			// Dessiner le pixel
-			dst[y * size_line / 4 + x] = color;
+			dst[y * g->size_line / 4 + x] = color;
 		}
 		else
-			dst[y * size_line / 4 + x] = (game->textures.f_rgb >> 1) & 0x7F7F7F;
+			dst[y * g->size_line / 4 + x] = (g->textures.f_rgb >> 1) & 0x7F7F7F;
 		++y;
 	}
 }
 
-void	draw_vertline(t_game *game, int x)
+// line_h is the height of the line
+// s for start
+void	draw_vertline(t_game *g, int x)
 {
-	int	line_height;
-	int	start;
+	int	line_h;
+	int	s;
 	int	end;
 
-	// int	color;
-	// t_img	*texture;
-	line_height = (int)(HEIGHT / game->dist_perp);
-	start = -line_height / 2 + HEIGHT / 2;
-	if (start < 0)
-		start = 0;
-	end = line_height / 2 + HEIGHT / 2;
+	line_h = (int)(HEIGHT / g->dist_perp);
+	s = -line_h / 2 + HEIGHT / 2;
+	if (s < 0)
+		s = 0;
+	end = line_h / 2 + HEIGHT / 2;
 	if (end >= HEIGHT)
 		end = HEIGHT - 1;
-	// calculate the position where the wall was hit
-	// East or West else North or South
-	if (game->side == 0)
-		game->hit_wall = game->pos_y + game->dist_perp * game->dir_ray_y;
+	if (g->side == 0)
+		g->hit_wall = g->pos_y + g->dist_perp * g->dir_ray_y;
 	else
-		game->hit_wall = game->pos_x + game->dist_perp * game->dir_ray_x;
-	// to find the exact position according to the width of the wall
-	game->hit_wall -= floor(game->hit_wall);
-	
-	
-	set_cur_texture(game);
-	
-	
-	// find the x coordinate on the texture
-	game->tex_x = (int)(game->hit_wall * game->cur_tex->width);
-	// managements inversions / reflexions
-	if (game->side == 0 && game->dir_ray_x > 0)
-		game->tex_x = game->cur_tex->width - game->tex_x - 1;
-	if (game->side == 1 && game->dir_ray_y < 0)
-		game->tex_x = game->cur_tex->width - game->tex_x - 1;
-	// How much to increase the texture coordinate per screen pixel
-	game->tex_step = (float)game->cur_tex->width / line_height;
-	// Starting texture coordinate
-	game->tex_pos = (start - (float)HEIGHT / 2 + (float)line_height / 2) * game->tex_step;
-	mlx_draw_vertline_texutre(x, start, end, game);
+		g->hit_wall = g->pos_x + g->dist_perp * g->dir_ray_x;
+	g->hit_wall -= floor(g->hit_wall);
+	set_cur_texture(g);
+	g->tex_x = (int)(g->hit_wall * g->cur_tex->width);
+	if (g->side == 0 && g->dir_ray_x > 0)
+		g->tex_x = g->cur_tex->width - g->tex_x - 1;
+	if (g->side == 1 && g->dir_ray_y < 0)
+		g->tex_x = g->cur_tex->width - g->tex_x - 1;
+	g->tex_step = (float)g->cur_tex->width / line_h;
+	g->tex_pos = (s - (float)HEIGHT / 2 + (float)line_h / 2) * g->tex_step;
+	mlx_draw_vertline_texutre(x, s, end, g);
 }

@@ -30,7 +30,8 @@ int	set_file_colors(t_file *file, char **tab)
 		return (err_msg(0, NULL), FAILURE);
 	if (!ft_strcmp(tab[0], "F"))
 	{
-		if (!ft_isnumber(tab[1]) || !ft_isnumber(tab[2]) || !ft_isnumber(tab[3]))
+		if (!ft_isnumber(tab[1]) || !ft_isnumber(tab[2])
+			|| !ft_isnumber(tab[3]))
 			return (err_msg(ERROR_INVALID_RGB, NULL), FAILURE);
 		++file->f;
 		file->f_rgb[0] = ft_atoi(tab[1]);
@@ -39,7 +40,8 @@ int	set_file_colors(t_file *file, char **tab)
 	}
 	else if (!ft_strcmp(tab[0], "C"))
 	{
-		if (!ft_isnumber(tab[1]) || !ft_isnumber(tab[2]) || !ft_isnumber(tab[3]))
+		if (!ft_isnumber(tab[1]) || !ft_isnumber(tab[2])
+			|| !ft_isnumber(tab[3]))
 			return (err_msg(ERROR_INVALID_RGB, NULL), FAILURE);
 		++file->c;
 		file->c_rgb[0] = ft_atoi(tab[1]);
@@ -109,9 +111,11 @@ int	init_game_data(t_game *gamep, t_file *file)
 	return (SUCCESS);
 }
 
-int		set_textures(t_game *game, t_file *file)
+int	set_textures(t_game *game, t_file *file)
 {
-	game->textures.f_rgb = (file->f_rgb[0] << 16) | (file->f_rgb[1] << 8) | file->f_rgb[2]; 
-	game->textures.c_rgb = (file->c_rgb[0] << 16) | (file->c_rgb[1] << 8) | file->c_rgb[2]; 
+	game->textures.f_rgb
+		= (file->f_rgb[0] << 16) | (file->f_rgb[1] << 8) | file->f_rgb[2];
+	game->textures.c_rgb
+		= (file->c_rgb[0] << 16) | (file->c_rgb[1] << 8) | file->c_rgb[2];
 	return (SUCCESS);
 }

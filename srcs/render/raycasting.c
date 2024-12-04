@@ -61,8 +61,8 @@ void	compute_rays(t_game *game)
 
 int	render(t_game *game)
 {
-	int		x;
-	int		hit;
+	int	x;
+	int	hit;
 
 	x = -1;
 	while (++x < WIDTH)

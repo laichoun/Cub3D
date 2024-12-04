@@ -63,7 +63,8 @@ static int	set_map_param(t_file *file)
 	return (SUCCESS);
 }
 
-int	ft_isempty_line(char *s);
+int			ft_isempty_line(char *s);
+
 static int	get_temp_map(t_file *file)
 {
 	char	**map;
@@ -78,7 +79,7 @@ static int	get_temp_map(t_file *file)
 		++i;
 	if (start == i)
 		return (err_msg(ERROR_MAPMISSING, NULL), FAILURE);
-	map = malloc ((i - start + 1) * sizeof(char *));
+	map = malloc((i - start + 1) * sizeof(char *));
 	if (!map)
 		return (err_msg(ERROR_MAPMISSING, NULL), FAILURE);
 	j = 0;
@@ -91,7 +92,7 @@ static int	get_temp_map(t_file *file)
 	return (file->map = map, SUCCESS);
 }
 
-static void free_interrupt(char **tab, int ind)
+static void	free_interrupt(char **tab, int ind)
 {
 	while (--ind >= 0)
 		free(tab[ind]);

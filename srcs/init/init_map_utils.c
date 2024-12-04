@@ -1,6 +1,7 @@
 #include "../../includes/cub3d.h"
 
-int	ft_isempty_line(char *s);
+int			ft_isempty_line(char *s);
+
 static int	ft_isspace(int c);
 
 void	skip_newlines(t_file *file, int *i)

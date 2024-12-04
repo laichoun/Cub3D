@@ -1,6 +1,3 @@
-// 1) check de la première ligne c'est forcément que des 1 avec ou sans les des espaces
-// 2) check de la dernière ligne avec ou sans les espaces
-
 #include "../../includes/cub3d.h"
 
 int	is_map_valid(t_file *file);
@@ -12,8 +9,8 @@ int	is_map_valid(t_file *file)
 {
 	if ((is_valid_row(file) == SUCCESS && is_valid_col(file) == SUCCESS
 			&& check_player(file) == SUCCESS))
-        return (SUCCESS);
-    return (FAILURE);
+		return (SUCCESS);
+	return (FAILURE);
 }
 
 int	check_player(t_file *file)
@@ -40,7 +37,7 @@ int	check_player(t_file *file)
 		i++;
 	}
 	if (file->player != 1)
-        return (err_msg(ERROR_PLAYER, NULL), FAILURE);
+		return (err_msg(ERROR_PLAYER, NULL), FAILURE);
 	return (SUCCESS);
 }
 
@@ -58,11 +55,11 @@ int	is_valid_row(t_file *file)
 			while (j < file->width && file->map[i][j] == 32)
 				j++;
 			if (j < file->width && file->map[i][j] != '1')
-                return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
+				return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
 			while (j < file->width && file->map[i][j] != 32)
 				j++;
 			if (file->map[i][j - 1] != '1' && file->map[i][j - 1] != ' ')
-                return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
+				return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
 			j++;
 		}
 		i++;
@@ -84,11 +81,11 @@ int	is_valid_col(t_file *file)
 			while (i < file->height && file->map[i][j] == 32)
 				i++;
 			if (i < file->height && file->map[i][j] != '1')
-                return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
+				return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
 			while (i < file->height && file->map[i][j] != 32)
 				i++;
 			if (file->map[i - 1][j] != '1' && file->map[i - 1][j] != ' ')
-                return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
+				return (err_msg(ERROR_NOT_SURROUNDED, NULL), FAILURE);
 			i++;
 		}
 		j++;
