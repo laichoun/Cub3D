@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   s_error_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:09 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:14:02 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:24:09 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_ERROR_H
-# define S_ERROR_H
+#ifndef S_ERROR_BONUS_H
+# define S_ERROR_BONUS_H
 
 # define ERROR_OPEN -1
 # define ERROR_MALLOC 2

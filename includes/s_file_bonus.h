@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   s_file_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:28 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:13:55 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:24:26 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_FILE_H
-# define S_FILE_H
+#ifndef S_FILE_BONUS_H
+# define S_FILE_BONUS_H
 
 typedef struct s_file
 {
