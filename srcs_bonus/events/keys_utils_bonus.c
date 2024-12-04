@@ -28,6 +28,7 @@ int	handle_door(char **map, int x, int y)
 	return (FAILURE);
 }
 
+//TODO:: create isCollision funct
 void	update_straight(t_game *g, int dir)
 {
 	float	hit;
