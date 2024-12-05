@@ -6,7 +6,7 @@
 /*   By: Asma <Asma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:30:08 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/05 23:37:06 by Asma             ###   ########.fr       */
+/*   Updated: 2024/12/05 23:56:28 by Asma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,11 +133,11 @@ static int	draw_minimap(t_game *game)
 	float	scale_y;
 	int		pos_x;
 	int		pos_y;
-	int	*dst;
-	int	color;
-	int	*mini;
+	int color;
 
-	dst = (int *)mlx_get_data_addr(game->mini_map, &game->minimap.mini_bpp, &game->minimap.mini_size_line,
+	scale_x = (float)MINI_WIDTH / (float)(game->col);
+	scale_y = (float)MINI_HEIGHT / (float)(game->row);
+	int mini = (int *)mlx_get_data_addr(game->mini_map, &game->minimap.mini_bpp, &game->minimap.mini_size_line,
 			&game->minimap.mini_endian);
 
 //peut-être envisager de mettre des pixels plutot que des images ?
@@ -146,44 +146,28 @@ static int	draw_minimap(t_game *game)
 		j = 0;
 		while (j < game->col)
 		{
-		
 			if (game->map[i][j] == '1')
 			{
-				scale_x = (float)MINI_WIDTH / (float)(game->col * game->minimap.walls->width);
-				scale_y = (float)MINI_HEIGHT / (float)(game->row * game->minimap.walls->height);
-				pos_x = j * scale_x * game->minimap.walls->width;
-				pos_y = i * scale_y * game->minimap.walls->height;
-				//mlx_put_image_to_window(game->mlx, game->win, game->minimap.walls, pos_y, pos_x);
 				color = 0x008C9197;
-				mini = (int *)mlx_get_data_addr(game->mini_map, &game->tex_bpp, &game->tex_size_line,
-			&game->tex_endian);
-				mini[y * size_line / 4 + x] = color;
-				printf("char : %c, pos x : %d, pos y : %d\n", game->map[i][j], pos_x, pos_y);
 			}
-			
-			else if (game->map[i][j] == '0')
+			int	y = 0;
+			while (y < scale_y)
 			{
-				scale_x = (float)MINI_WIDTH / (float)(game->col * game->minimap.floor->width);
-				scale_y = (float)MINI_HEIGHT / (float)(game->row * game->minimap.floor->height);
-				pos_x = j * scale_x * game->minimap.floor->width;
-				pos_y = i * scale_y * game->minimap.floor->height;
-				//mlx_put_image_to_window(game->mlx, game->win, game->minimap.floor, pos_y, pos_x);
-				color = 0x004D5152;
-				printf("char : %c, pos x : %d, pos y : %d\n", game->map[i][j], pos_x, pos_y);
+				int	x = 0;
+				while (x < scale_x)
+				{
+					pos_x = j * scale_x + x;
+					pos_y = i * scale_y + y;
+					mini[pixel_y * size_line / 4 + pixel_x] = color;
+					x ++;
+				}
+				y ++;
 			}
-	
-			else if (game->map[i][j] == 'N' || game->map[i][j] == 'E' || game->map[i][j] == 'W' || game->map[i][j] == 'S')
-			{
-				scale_x = (float)MINI_WIDTH / (float)(game->col * game->minimap.player->width);
-				scale_y = (float)MINI_HEIGHT / (float)(game->row * game->minimap.player->height);
-				pos_x = j * scale_x * game->minimap.player->width;
-				pos_y = i * scale_y * game->minimap.player->height;
-				//mlx_put_image_to_window(game->mlx, game->win, game->minimap.player, pos_y, pos_x);
-				printf("char : %c, pos x : %d, pos y : %d\n", game->map[i][j], pos_x, pos_y);	
-			}
-			
-			j++;
+			j ++;
 		}
+		i ++;
 	}
+	mlx_put_image_to_window(game->mlx, game->win, game->mini_map, 0, 0);
 	return (SUCCESS);
 }
+
