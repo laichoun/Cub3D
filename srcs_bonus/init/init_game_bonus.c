@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:22 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:15:38 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:56:48 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

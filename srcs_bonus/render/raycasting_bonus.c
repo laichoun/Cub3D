@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:38 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:16:35 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/05 15:23:45 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ int	render(t_game *game)
 		draw_vertline(game, x);
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->minimap.walls, 0, 0);
 	return (SUCCESS);
 }

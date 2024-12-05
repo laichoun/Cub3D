@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:56 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:14:16 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:53:51 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ void	free_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->textures.img_so);
 	mlx_destroy_image(game->mlx, game->textures.img_ea);
 	mlx_destroy_image(game->mlx, game->textures.img_we);
+
+	mlx_destroy_image(game->mlx, game->mini_map);
+	mlx_destroy_image(game->mlx, game->minimap.floor);
+	mlx_destroy_image(game->mlx, game->minimap.walls);
+	mlx_destroy_image(game->mlx, game->minimap.player);
+
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
