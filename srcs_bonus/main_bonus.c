@@ -24,6 +24,8 @@ int	main(int argc, char *argv[])
 	if (init_game(&game, argv[1]))
 		return (FAILURE);
 	init_bonus_textures(&game);
+	game.t_coefx = 0.0;
+	game.t_coefy = 0.0;
 	looping_youhouuuuuuuuuuuuuuu(&game);
 	//mlx_destroy_image(&game.mlx, game.door);
 	free_game(&game);
@@ -47,4 +49,5 @@ static void	init_bonus_textures(t_game *game)
 
 	game->door = NULL;
 	game->door = mlx_xpm_file_to_image(game->mlx, "textures/door.xpm", &w, &h);
+	game->torch = mlx_xpm_file_to_image(game->mlx, "textures/Torch.xpm", &w, &h);
 }

@@ -66,6 +66,7 @@ typedef struct s_game
 	t_img		*screen;
 	t_img		*cur_tex;
 	t_img		*door;
+	t_img		*torch;
 	float		pos_x;
 	float		pos_y;
 	float		dir_x;
@@ -97,6 +98,8 @@ typedef struct s_game
 	int			tex_bpp;
 	int			tex_size_line;
 	int			tex_endian;
+	double		t_coefx;
+	double		t_coefy;
 }				t_game;
 
 // init how to name functions? initGameAssets? or parseGameDAta? load_gameData?
