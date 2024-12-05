@@ -49,5 +49,5 @@ static void	init_bonus_textures(t_game *game)
 
 	game->door = NULL;
 	game->door = mlx_xpm_file_to_image(game->mlx, "textures/door.xpm", &w, &h);
-	game->torch = mlx_xpm_file_to_image(game->mlx, "textures/Torch.xpm", &w, &h);
+	game->torch = mlx_xpm_file_to_image(game->mlx, "textures/torch1.xpm", &w, &h);
 }

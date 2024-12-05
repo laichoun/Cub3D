@@ -84,6 +84,7 @@ void	draw_torch(t_game *g)
 {
 	int	x = -1;
 	int	y = -1;
+	//static int	counter = 0;
 	int	offx = 1300;//WIDTH - WIDTH / 3;
 	int	offy = 500;//HEIGHT - HEIGHT / 3;
 	int	*data = (int *)mlx_get_data_addr(g->screen, &g->bpp, &g->size_line, &g->endian);
