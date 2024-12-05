@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
+/*   By: Asma <Asma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:30:08 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/05 17:37:03 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/05 21:53:52 by Asma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ static int	draw_minimap(t_game *game)
 	int		pos_x;
 	int		pos_y;
 
+
+//inverser mettre d'abord les lignes et après les colonnes 
 	while (++i < game->col)
 	{
 		j = 0;
@@ -76,8 +78,8 @@ static int	draw_minimap(t_game *game)
 			{
 				scale_x = (float)MINI_WIDTH / (float)(game->col * game->minimap.walls->width);
 				scale_y = (float)MINI_HEIGHT / (float)(game->row * game->minimap.walls->height);
-				pos_x = i * scale_x * game->minimap.walls->width;
-				pos_y = j * scale_y * game->minimap.walls->height;
+				pos_x = j * scale_x * game->minimap.walls->width;
+				pos_y = i * scale_y * game->minimap.walls->height;
 				//mlx_put_image_to_window(game->mlx, game->win, game->minimap.walls, pos_y, pos_x);
 				printf("char : %c, pos x : %d, pos y : %d\n", game->map[i][j], pos_x, pos_y);
 			}
@@ -85,8 +87,8 @@ static int	draw_minimap(t_game *game)
 			{
 				scale_x = (float)MINI_WIDTH / (float)(game->col * game->minimap.floor->width);
 				scale_y = (float)MINI_HEIGHT / (float)(game->row * game->minimap.floor->height);
-				pos_x = i * scale_x * game->minimap.floor->width;
-				pos_y = j * scale_y * game->minimap.floor->height;
+				pos_x = j * scale_x * game->minimap.floor->width;
+				pos_y = i * scale_y * game->minimap.floor->height;
 				//mlx_put_image_to_window(game->mlx, game->win, game->minimap.floor, pos_y, pos_x);
 				printf("char : %c, pos x : %d, pos y : %d\n", game->map[i][j], pos_x, pos_y);
 			}
@@ -95,12 +97,11 @@ static int	draw_minimap(t_game *game)
 			{
 				scale_x = (float)MINI_WIDTH / (float)(game->col * game->minimap.player->width);
 				scale_y = (float)MINI_HEIGHT / (float)(game->row * game->minimap.player->height);
-				pos_x = i * scale_x * game->minimap.player->width;
-				pos_y = j * scale_y * game->minimap.player->height;
+				pos_x = j * scale_x * game->minimap.player->width;
+				pos_y = i * scale_y * game->minimap.player->height;
 				//mlx_put_image_to_window(game->mlx, game->win, game->minimap.player, pos_y, pos_x);
 				printf("char : %c, pos x : %d, pos y : %d\n", game->map[i][j], pos_x, pos_y);	
 			}
-			
 			j++;
 		}
 	}
