@@ -65,6 +65,7 @@ typedef struct s_game
 	void		*win;
 	t_img		*screen;
 	t_img		*cur_tex;
+	t_img		*door;
 	float		pos_x;
 	float		pos_y;
 	float		dir_x;
@@ -109,7 +110,7 @@ int				set_player_dir(t_game *gamep, t_file *file);
 int				init_raycast(t_game *game, t_file *file);
 
 // mlx helper
-void			draw_vertline(t_game *game, int x);
+void			draw_vertline(t_game *game, int x, int hit);
 
 // render
 int				render(t_game *game);
@@ -126,6 +127,7 @@ void			right_arrow_key(t_game *game);
 void			left_arrow_key(t_game *game);
 void			hide_show_mouse(t_game *game);
 int				mouse_handle(int x, int y, t_game *game);
+int				is_coll(int x, int y, char **map);
 // error
 void			err_msg(int err_code, char *msg);
 

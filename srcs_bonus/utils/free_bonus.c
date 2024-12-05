@@ -12,6 +12,8 @@
 
 #include "../../includes/cub3d_bonus.h"
 
+void	free_bonus(t_game *game);
+
 void	free_game(t_game *game)
 {
 	ft_free_split(game->map);
@@ -20,6 +22,7 @@ void	free_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->textures.img_so);
 	mlx_destroy_image(game->mlx, game->textures.img_ea);
 	mlx_destroy_image(game->mlx, game->textures.img_we);
+	free_bonus(game);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
@@ -41,4 +44,9 @@ void	free_cardinals(t_file *file)
 	free(file->tex_so);
 	free(file->tex_ea);
 	free(file->tex_we);
+}
+
+void	free_bonus(t_game *game)
+{
+	mlx_destroy_image(game->mlx, game->door);
 }

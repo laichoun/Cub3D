@@ -64,6 +64,7 @@ BSRC_FILES =	main_bonus.c \
 			render/raycasting_bonus.c \
 			render/mlx_draw_vertline_bonus.c \
 			events/key_handle_bonus.c \
+			events/keys_utils_bonus.c \
 			events/mouse_handle_bonus.c \
 			events/close_window_bonus.c \
 			events/movement_keys_bonus.c \
@@ -136,4 +137,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+rbonus: fclean bonus
+
+.PHONY: all clean fclean re rbonus

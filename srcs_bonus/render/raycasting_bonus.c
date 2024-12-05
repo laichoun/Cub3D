@@ -71,6 +71,15 @@ void	compute_rays(t_game *game)
 	}
 }
 
+int	set_hit(t_game *game)
+{
+	if (game->map[game->ray_pos_y][game->ray_pos_x] == '1')
+		return (1);
+	if (game->map[game->ray_pos_y][game->ray_pos_x] == 'D')
+		return (2);
+	return (0);
+}
+
 int	render(t_game *game)
 {
 	int	x;
@@ -84,15 +93,13 @@ int	render(t_game *game)
 		while (hit == 0)
 		{
 			compute_rays(game);
-			if (game->map[game->ray_pos_y][game->ray_pos_x] == '1'
-			|| game->map[game->ray_pos_y][game->ray_pos_x] == 'D')
-				hit = 1;
+			hit = set_hit(game);
 		}
 		if (game->side == 0)
 			game->dist_perp = (game->side_dist_x - game->delta_x);
 		else
 			game->dist_perp = (game->side_dist_y - game->delta_y);
-		draw_vertline(game, x);
+		draw_vertline(game, x, hit);
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
 	return (SUCCESS);

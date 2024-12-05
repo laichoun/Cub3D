@@ -29,25 +29,7 @@ int	handle_door(char **map, int x, int y)
 }
 
 //TODO:: create isCollision funct
-void	update_straight(t_game *g, int dir)
+int	is_coll(int x, int y, char **map)
 {
-	float	hit;
-
-	hit = 1;
-	if (g->dir_x < 0)
-		hit *= -1;
-	if (g->map[(int)(g->pos_y + hitbox)]
-		[(int)(g->pos_x + g->dir_x * MOVE_SPEED + hit * hitbox_s)] != '1'
-		&& g->map[(int)(g->pos_y - hitbox)]
-		[(int)(g->pos_x + g->dir_x * MOVE_SPEED + hit * hitbox_s)] != '1')
-		g->pos_x += g->dir_x * MOVE_SPEED;
-	hit = 1;
-	if (g->dir_y < 0)
-		hit *= -1;
-	if (g->map[(int)(g->pos_y + g->dir_y * MOVE_SPEED + hit * hitbox_s)]
-		[(int)(g->pos_x + hitbox)] != '1'
-		&& (g->map
-		[(int)(g->pos_y + g->dir_y * MOVE_SPEED + hit * hitbox_s)]
-		[(int)(g->pos_x - hitbox)] != '1'))
-		g->pos_y += g->dir_y * MOVE_SPEED;
+	return (map[y][x] == '1' || map[y][x] == 'D');
 }

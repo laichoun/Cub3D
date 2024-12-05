@@ -1,7 +1,7 @@
-NO textures/xmas/candycan.xpm
-SO textures/xmas/snowman.xpm
-WE textures/xmas/cadeau.xpm
-EA textures/xmas/santa.xpm
+NO textures/xmas/background.xpm
+SO textures/xmas/background.xpm
+WE textures/xmas/background.xpm
+EA textures/xmas/background.xpm
 
 F 198, 245, 255
 C 59, 71, 148

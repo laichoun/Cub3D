@@ -12,22 +12,24 @@
 
 #include "../../includes/cub3d_bonus.h"
 
-void	set_cur_texture(t_game *game)
+void	set_cur_texture(t_game *game, int hit)
 {
-	if (game->side == 0)
+	if (hit == 1 && game->side == 0)
 	{
 		if (game->dir_ray_x > 0)
 			game->cur_tex = game->textures.img_ea;
 		else
 			game->cur_tex = game->textures.img_we;
 	}
-	else
+	if (hit == 1 && game->side == 1)
 	{
 		if (game->dir_ray_y < 0)
 			game->cur_tex = game->textures.img_so;
 		else
 			game->cur_tex = game->textures.img_no;
 	}
+	else if (hit == 2)
+		game->cur_tex = game->door;
 }
 
 // to make it darker
@@ -64,7 +66,7 @@ static void	mlx_draw_vertline_texutre(int x, int drawStart, int drawEnd,
 
 // line_h is the height of the line
 // s for start
-void	draw_vertline(t_game *g, int x)
+void	draw_vertline(t_game *g, int x, int hit)
 {
 	int	line_h;
 	int	s;
@@ -82,7 +84,7 @@ void	draw_vertline(t_game *g, int x)
 	else
 		g->hit_wall = g->pos_x + g->dist_perp * g->dir_ray_x;
 	g->hit_wall -= floor(g->hit_wall);
-	set_cur_texture(g);
+	set_cur_texture(g, hit);
 	g->tex_x = (int)(g->hit_wall * g->cur_tex->width);
 	if (g->side == 0 && g->dir_ray_x > 0)
 		g->tex_x = g->cur_tex->width - g->tex_x - 1;
