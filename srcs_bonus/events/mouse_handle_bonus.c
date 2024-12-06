@@ -47,7 +47,7 @@ static void	mouse_right(t_game *game)
 {
 	float		temp_dir_x;
 	float		temp_plane_x;
-	const float	mouse_rot = 0.007;
+	const float	mouse_rot = 0.015;
 
 	temp_plane_x = game->dir_plane_x;
 	temp_dir_x = game->dir_x;
@@ -63,7 +63,7 @@ static void	mouse_left(t_game *game)
 {
 	float		temp_dir_x;
 	float		temp_plane_x;
-	const float	mouse_rot = 0.007;
+	const float	mouse_rot = 0.015;
 
 	temp_plane_x = game->dir_plane_x;
 	temp_dir_x = game->dir_x;

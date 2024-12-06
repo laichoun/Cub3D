@@ -27,8 +27,8 @@ int	set_player_dir(t_game *gamep, t_file *file)
 	else if (file->dir == 'S')
 		set_dir(gamep, 0, 1);
 	else if (file->dir == 'E')
-		set_dir(gamep, 1, 0);
-	else if (file->dir == 'W')
 		set_dir(gamep, -1, 0);
+	else if (file->dir == 'W')
+		set_dir(gamep, 1, 0);
 	return (SUCCESS);
 }
