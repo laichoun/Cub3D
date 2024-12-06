@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:38 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 17:06:37 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/06 10:11:55 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,31 +80,6 @@ int	set_hit(t_game *game)
 	return (0);
 }
 
-void	draw_torch(t_game *g)
-{
-	int	x = -1;
-	int	y = -1;
-	//static int	counter = 0;
-	int	offx = 1300;//WIDTH - WIDTH / 3;
-	int	offy = 500;//HEIGHT - HEIGHT / 3;
-	int	*data = (int *)mlx_get_data_addr(g->screen, &g->bpp, &g->size_line, &g->endian);
-	int	*t = (int *)mlx_get_data_addr(g->torch, &g->tex_bpp, &g->tex_size_line, &g->tex_endian);
-	int	w = g->torch->width;
-	int	h = g->torch->height;
-	int	color = 0;
-	while (++x < w)
-	{
-		y = -1;
-		while (++y < h)
-		{
-			color = t[y * g->torch->width + x];
-			if (color == 0x00000000)
-				continue ;
-			data[((y + (int)g->t_coefy) + offy) * g->size_line / 4 + ((int)(x + g->t_coefx) + offx)] = color;
-		}
-	}
-}
-
 int	render(t_game *game)
 {
 	int	x;
@@ -121,12 +96,12 @@ int	render(t_game *game)
 			hit = set_hit(game);
 		}
 		if (game->side == 0)
-			game->dist_perp = (game->side_dist_x - game->delta_x);
+			game->dist_perp = game->side_dist_x - game->delta_x;
 		else
-			game->dist_perp = (game->side_dist_y - game->delta_y);
+			game->dist_perp = game->side_dist_y - game->delta_y;
 		draw_vertline(game, x, hit);
 	}
-	draw_torch(game);
+	render_animation(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
 	return (SUCCESS);
 }

@@ -1,13 +1,23 @@
-#include "../../includes/cub3d_bonus.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keys_utils_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/06 10:06:15 by pibernar          #+#    #+#             */
+/*   Updated: 2024/12/06 10:06:51 by pibernar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-const float	hitbox = 0.05;
-const float	hitbox_s = 0.1;
+#include "../../includes/cub3d_bonus.h"
 
 int	handle_door(char **map, int x, int y)
 {
-	int	i = -2;
+	int	i;
 	int	j;
 
+	i = -2;
 	while (++i < 2)
 	{
 		j = -2;
@@ -28,7 +38,6 @@ int	handle_door(char **map, int x, int y)
 	return (FAILURE);
 }
 
-//TODO:: create isCollision funct
 int	is_coll(int x, int y, char **map)
 {
 	return (map[y][x] == '1' || map[y][x] == 'D');
