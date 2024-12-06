@@ -6,12 +6,14 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:38 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/05 15:23:45 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/06 12:07:27 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 #include <math.h>
+
+int	draw_minimap(t_game *game);
 
 void	set_steps_dist(t_game *game)
 {
@@ -93,7 +95,7 @@ int	render(t_game *game)
 			game->dist_perp = (game->side_dist_y - game->delta_y);
 		draw_vertline(game, x);
 	}
+	draw_minimap(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
-	mlx_put_image_to_window(game->mlx, game->win, game->minimap.walls, 0, 0);
 	return (SUCCESS);
 }

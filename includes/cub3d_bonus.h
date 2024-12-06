@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/05 16:52:22 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/06 14:11:55 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 # define WIDTH 1920
 # define HEIGHT 1080
 
-# define MINI_WIDTH 500
-# define MINI_HEIGHT 500
+# define MINI_WIDTH 300
+# define MINI_HEIGHT 300
 
 # define ROT_SPEED 0.02
 # define MOVE_SPEED 0.1
