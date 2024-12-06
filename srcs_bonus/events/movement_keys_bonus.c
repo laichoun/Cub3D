@@ -37,7 +37,7 @@ void	w_key(t_game *game)
 		game->pos_y += game->dir_y * MOVE_SPEED;
 }
 
-void	a_key(t_game *game)
+void	d_key(t_game *game)
 {
 	float	hitbox;
 	float	hitbox_x;
@@ -90,7 +90,7 @@ void	s_key(t_game *game)
 		game->pos_y -= game->dir_y * MOVE_SPEED;
 }
 
-void	d_key(t_game *game)
+void	a_key(t_game *game)
 {
 	float	hitbox;
 	float	hitbox_x;

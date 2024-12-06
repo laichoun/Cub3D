@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:38 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 10:11:55 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/06 18:35:52 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 #include <math.h>
+
+int	draw_minimap(t_game *game);
 
 void	set_steps_dist(t_game *game)
 {
@@ -101,6 +103,7 @@ int	render(t_game *game)
 			game->dist_perp = game->side_dist_y - game->delta_y;
 		draw_vertline(game, x, hit);
 	}
+	draw_minimap(game);
 	render_animation(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
 	return (SUCCESS);

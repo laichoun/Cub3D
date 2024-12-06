@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 10:10:23 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:19:46 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 //# define HEIGHT 720
 # define WIDTH 1920
 # define HEIGHT 1080
+
+# define MINI_WIDTH 300
+# define MINI_HEIGHT 300
 
 # define ROT_SPEED 0.02
 # define MOVE_SPEED 0.1
@@ -55,8 +58,16 @@ typedef struct s_textures
 	int			c_rgb;
 }				t_textures;
 
+typedef struct s_minimap
+{
+	int			mini_bpp;
+	int			mini_size_line;
+	int			mini_endian;
+}				t_minimap;
+
 typedef struct s_game
 {
+	t_minimap	minimap;
 	t_textures	textures;
 	char		**map;
 	int			row;
@@ -64,6 +75,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	t_img		*screen;
+	t_img		*mini_map;
 	t_img		*cur_tex;
 	t_img		*door;
 	t_img		*torch[3];

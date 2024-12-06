@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:56 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:14:16 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:19:54 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ void	free_bonus(t_game *game)
 	mlx_destroy_image(game->mlx, game->torch[0]);
 	mlx_destroy_image(game->mlx, game->torch[1]);
 	mlx_destroy_image(game->mlx, game->torch[2]);
+  mlx_destroy_image(game->mlx, game->mini_map);
 }

@@ -43,7 +43,7 @@ void	hide_show_mouse(t_game *game)
 	}
 }
 
-static void	mouse_right(t_game *game)
+static void	mouse_left(t_game *game)
 {
 	float		temp_dir_x;
 	float		temp_plane_x;
@@ -59,7 +59,7 @@ static void	mouse_right(t_game *game)
 		* cos(-mouse_rot);
 }
 
-static void	mouse_left(t_game *game)
+static void	mouse_right(t_game *game)
 {
 	float		temp_dir_x;
 	float		temp_plane_x;

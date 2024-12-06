@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d_bonus.h"
 
-void	right_arrow_key(t_game *game)
+void	left_arrow_key(t_game *game)
 {
 	float	temp_dir_x;
 	float	temp_plane_x;
@@ -27,7 +27,7 @@ void	right_arrow_key(t_game *game)
 		* cos(-ROT_SPEED);
 }
 
-void	left_arrow_key(t_game *game)
+void	right_arrow_key(t_game *game)
 {
 	float	temp_dir_x;
 	float	temp_plane_x;

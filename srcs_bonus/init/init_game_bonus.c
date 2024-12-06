@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:22 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:15:38 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/06 11:48:04 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int	init_game_data(t_game *gamep, t_file *file)
 	if (!file)
 		return (FAILURE);
 	gamep->map = ft_dupsplit(file->map);
-	gamep->row = file->width;
-	gamep->col = file->height;
+	gamep->row = file->height;
+	gamep->col = file->width;
 	gamep->old_mpos_x = 0;
 	init_raycast(gamep, file);
 	set_player_dir(gamep, file);

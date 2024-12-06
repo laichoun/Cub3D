@@ -70,6 +70,7 @@ BSRC_FILES =	main_bonus.c \
 			events/close_window_bonus.c \
 			events/movement_keys_bonus.c \
 			events/rotation_keys_bonus.c \
+			minimap/minimap_bonus.c \
 
 BSRCS = $(addprefix $(BSRC_DIR), $(BSRC_FILES))
 
@@ -104,7 +105,9 @@ $(OBJ_DIR):
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-bonus: $(MLX) $(LIBFT) $(BOBJ_DIR) $(BOBJS)
+bonus: $(BNAME)
+
+$(BNAME): $(MLX) $(LIBFT) $(BOBJ_DIR) $(BOBJS)
 	$(CC) $(CFLAGS) $(INC) $(BOBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(BNAME)
 	@echo "$(GREEN) $(BNAME) compiled successfully!$(RESET)"
 
@@ -114,6 +117,7 @@ $(BOBJ_DIR):
 	mkdir -p $(BOBJ_DIR)utils
 	mkdir -p $(BOBJ_DIR)render
 	mkdir -p $(BOBJ_DIR)events
+	mkdir -p $(BOBJ_DIR)minimap
 
 $(BOBJ_DIR)%.o: $(BSRC_DIR)%.c
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@

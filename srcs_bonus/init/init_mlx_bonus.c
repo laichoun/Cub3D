@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:57 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:15:09 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:35:30 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
+
+//void	init_minimap(t_game *game);
 
 int	init_mlx(t_game *game, t_file *file)
 {
@@ -30,5 +32,6 @@ int	init_mlx(t_game *game, t_file *file)
 			&h);
 	game->textures.img_ea = mlx_xpm_file_to_image(game->mlx, file->tex_ea, &w,
 			&h);
+	game->mini_map = mlx_new_image(game->mlx, MINI_WIDTH, MINI_HEIGHT);
 	return (SUCCESS);
 }
