@@ -29,7 +29,6 @@ int	draw_minimap(t_game *game)
 
 int	select_color(t_game *game, int x, int y)
 {
-	int		color;
 	int		px;
 	float	pos_x;
 	float	pos_y;
@@ -41,16 +40,18 @@ int	select_color(t_game *game, int x, int y)
 		return (-1);
 	if (x <= MINI_WIDTH / 2 + px && x >= MINI_WIDTH / 2 - px && y <= MINI_HEIGHT
 		/ 2 + px && y >= MINI_HEIGHT / 2 - px)
-		color = 0x00FF0000;
+		return (0x00FF0000);
 	else if (game->map[(int)pos_y][(int)pos_x] == '1')
-		color = 0x008C9197;
+		return (0x008C9197);
 	else if (game->map[(int)pos_y][(int)pos_x] == '0'
-		|| game->map[(int)pos_y][(int)pos_x] == 'E'
-		|| game->map[(int)pos_y][(int)pos_x] == 'W'
-		|| game->map[(int)pos_y][(int)pos_x] == 'N'
+		|| game->map[(int)pos_y][(int)pos_x] == 'E' || game->map[(int)pos_y]
+			[(int)pos_x] == 'W' || game->map[(int)pos_y][(int)pos_x] == 'N'
 		|| game->map[(int)pos_y][(int)pos_x] == 'S')
-		color = 0x00000000;
+		return (0x00000000);
+	else if (game->map[(int)pos_y][(int)pos_x] == 'D')
+		return (0x00965d4c);
+	else if (game->map[(int)pos_y][(int)pos_x] == 'O')
+		return (0x00ffdb99);
 	else
-		color = 0x0094f920;
-	return (color);
+		return (0x0094f920);
 }

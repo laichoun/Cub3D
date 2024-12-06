@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:49 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 16:54:48 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/06 18:26:57 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	check_components(t_file *file)
 			if (file->map[i][j] != 'N' && file->map[i][j] != 'S'
 				&& file->map[i][j] != 'W' && file->map[i][j] != 'E'
 				&& file->map[i][j] != '1' && file->map[i][j] != '0'
-				&& file->map[i][j] != 'D' && file->map[i][j] != 'M'
-				&& file->map[i][j] != 'T' && file->map[i][j] != ' ')
+				&& file->map[i][j] != 'D' && file->map[i][j] != 'O'
+				&& file->map[i][j] != ' ')
 				return (err_msg(ERROR_CHAR, NULL), FAILURE);
 			j++;
 		}
