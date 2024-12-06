@@ -93,7 +93,7 @@ int	render(t_game *game)
 			game->dist_perp = (game->side_dist_x - game->delta_x);
 		else
 			game->dist_perp = (game->side_dist_y - game->delta_y);
-		draw_vertline(game, WIDTH - x);
+		draw_vertline(game,  x);
 	}
 	draw_minimap(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
