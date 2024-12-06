@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:28 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:17:05 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:45:59 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,15 @@ void	w_key(t_game *game)
 		hitbox_x *= -1;
 	if (game->dir_y < 0)
 		hitbox_y *= -1;
-	if (game->map[(int)(game->pos_y + hitbox)]
-		[(int)(game->pos_x + game->dir_x * MOVE_SPEED + hitbox_x)] != '1'
-		&& game->map[(int)(game->pos_y - hitbox)]
-		[(int)(game->pos_x + game->dir_x * MOVE_SPEED + hitbox_x)] != '1')
+	if (is_coll((int)(game->pos_x + game->dir_x * MOVE_SPEED + hitbox_x),
+		(int)(game->pos_y + hitbox), game->map) != 1
+		&& is_coll((int)(game->pos_x + game->dir_x * MOVE_SPEED + hitbox_x),
+		(int)(game->pos_y - hitbox), game->map) != 1)
 		game->pos_x += game->dir_x * MOVE_SPEED;
-	if (game->map[(int)(game->pos_y + game->dir_y * MOVE_SPEED + hitbox_y)]
-		[(int)(game->pos_x + hitbox)] != '1'
-		&& (game->map
-		[(int)(game->pos_y + game->dir_y * MOVE_SPEED + hitbox_y)]
-		[(int)(game->pos_x - hitbox)] != '1'))
+	if (is_coll((int)(game->pos_x + hitbox), (int)(game->pos_y
+		+ game->dir_y * MOVE_SPEED + hitbox_y), game->map) != 1
+		&& is_coll((int)(game->pos_x - hitbox), (int)(game->pos_y
+		+ game->dir_y * MOVE_SPEED + hitbox_y), game->map) != 1)
 		game->pos_y += game->dir_y * MOVE_SPEED;
 }
 
@@ -54,16 +53,15 @@ void	d_key(t_game *game)
 		hitbox_x *= -1;
 	if (new_dir[1] < 0)
 		hitbox_y *= -1;
-	if (game->map[(int)(game->pos_y + hitbox)]
-		[(int)(game->pos_x + new_dir[0] * MOVE_SPEED / 2 + hitbox_x)] != '1'
-		&& game->map[(int)(game->pos_y - hitbox)]
-		[(int)(game->pos_x + new_dir[0] * MOVE_SPEED / 2 + hitbox_x)] != '1')
+	if (is_coll((int)(game->pos_x + new_dir[0] * MOVE_SPEED / 2 + hitbox_x),
+		(int)(game->pos_y + hitbox), game->map) != 1
+		&& is_coll((int)(game->pos_x + new_dir[0] * MOVE_SPEED / 2 + hitbox_x),
+		(int)(game->pos_y - hitbox), game->map) != 1)
 		game->pos_x += new_dir[0] * MOVE_SPEED / 2;
-	if (game->map[(int)(game->pos_y + new_dir[1] * MOVE_SPEED / 2 + hitbox_y)]
-		[(int)(game->pos_x + hitbox)] != '1'
-		&& (game->map
-		[(int)(game->pos_y + new_dir[1] * MOVE_SPEED / 2 + hitbox_y)]
-		[(int)(game->pos_x - hitbox)] != '1'))
+	if (is_coll((int)(game->pos_x + hitbox), (int)(game->pos_y + new_dir[1]
+		* MOVE_SPEED / 2 + hitbox_y), game->map) != 1
+		&& is_coll((int)(game->pos_x - hitbox), (int)(game->pos_y + new_dir[1]
+		* MOVE_SPEED / 2 + hitbox_y), game->map) != 1)
 		game->pos_y += new_dir[1] * MOVE_SPEED / 2;
 }
 
@@ -80,16 +78,15 @@ void	s_key(t_game *game)
 		hitbox_x *= -1;
 	if (game->dir_y < 0)
 		hitbox_y *= -1;
-	if (game->map[(int)(game->pos_y + hitbox)]
-		[(int)(game->pos_x - game->dir_x * MOVE_SPEED - hitbox_x)] != '1'
-		&& game->map[(int)(game->pos_y - hitbox)]
-		[(int)(game->pos_x - game->dir_x * MOVE_SPEED - hitbox_x)] != '1')
+	if (is_coll((int)(game->pos_x - game->dir_x * MOVE_SPEED - hitbox_x),
+		(int)(game->pos_y + hitbox), game->map) != 1
+		&& is_coll((int)(game->pos_x - game->dir_x * MOVE_SPEED - hitbox_x),
+		(int)(game->pos_y - hitbox), game->map) != 1)
 		game->pos_x -= game->dir_x * MOVE_SPEED;
-	if (game->map[(int)(game->pos_y - game->dir_y * MOVE_SPEED - hitbox_y)]
-		[(int)(game->pos_x + hitbox)] != '1'
-		&& (game->map
-		[(int)(game->pos_y - game->dir_y * MOVE_SPEED - hitbox_y)]
-		[(int)(game->pos_x - hitbox)] != '1'))
+	if (is_coll((int)(game->pos_x + hitbox), (int)(game->pos_y - game->dir_y
+		* MOVE_SPEED - hitbox_y), game->map) != 1
+		&& is_coll((int)(game->pos_x - hitbox), (int)(game->pos_y - game->dir_y
+		* MOVE_SPEED - hitbox_y), game->map) != 1)
 		game->pos_y -= game->dir_y * MOVE_SPEED;
 }
 
@@ -109,15 +106,41 @@ void	a_key(t_game *game)
 		hitbox_x *= -1;
 	if (new_dir[1] < 0)
 		hitbox_y *= -1;
-	if (game->map[(int)(game->pos_y + hitbox)]
-		[(int)(game->pos_x + new_dir[0] * MOVE_SPEED / 2 + hitbox_x)] != '1'
-		&& game->map[(int)(game->pos_y - hitbox)]
-		[(int)(game->pos_x + new_dir[0] * MOVE_SPEED / 2 + hitbox_x)] != '1')
+	if (is_coll((int)(game->pos_x + new_dir[0] * MOVE_SPEED / 2 + hitbox_x),
+		(int)(game->pos_y + hitbox), game->map) != 1
+		&& is_coll((int)(game->pos_x + new_dir[0] * MOVE_SPEED / 2 + hitbox_x),
+		(int)(game->pos_y - hitbox), game->map) != 1)
 		game->pos_x += new_dir[0] * MOVE_SPEED / 2;
-	if (game->map[(int)(game->pos_y + new_dir[1] * MOVE_SPEED / 2 + hitbox_y)]
-		[(int)(game->pos_x + hitbox)] != '1'
-		&& (game->map
-		[(int)(game->pos_y + new_dir[1] * MOVE_SPEED / 2 + hitbox_y)]
-		[(int)(game->pos_x - hitbox)] != '1'))
+	if (is_coll((int)(game->pos_x + hitbox), (int)(game->pos_y + new_dir[1]
+		* MOVE_SPEED / 2 + hitbox_y), game->map) != 1
+		&& is_coll((int)(game->pos_x - hitbox), (int)(game->pos_y + new_dir[1]
+		* MOVE_SPEED / 2 + hitbox_y), game->map) != 1)
 		game->pos_y += new_dir[1] * MOVE_SPEED / 2;
+}
+
+void	space_key(t_game *game)
+{
+	int		x;
+	int		y;
+	int		i;
+	int		j;
+	char	**map;
+
+	i = -2;
+	map = game->map;
+	x = (int)game->pos_x;
+	y = (int)game->pos_y;
+	while (++i < 2)
+	{
+		j = -2;
+		while (++j < 2)
+		{
+			if (i == 0 && j == 0)
+				continue ;
+			if (map[y + j][x + i] == 'D')
+				map[y + j][x + i] = 'O';
+			else if (map[y + j][x + i] == 'O')
+				map[y + j][x + i] = 'D';
+		}
+	}
 }
