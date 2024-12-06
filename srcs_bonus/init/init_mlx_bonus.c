@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:57 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/05 16:52:38 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:58:57 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,21 @@ int	init_mlx(t_game *game, t_file *file)
 	return (SUCCESS);
 }
 
-
-//creation fonction avec les chemins pour la minimap
+// creation fonction avec les chemins pour la minimap
 void	init_minimap(t_game *game)
 {
-	int	w;
-	int	h;
-	
+	// int	w;
+	// int	h;
+
 	game->mini_map = mlx_new_image(game->mlx, MINI_WIDTH, MINI_HEIGHT);
-	//mettre les checks pour open les textures 
-	game->minimap.path_f = "./textures/minimap/tile123.xpm";
-	game->minimap.path_w = "./textures/minimap/tile03.xpm";
-	game->minimap.path_p = "./textures/minimap/light2.xpm";
-	game->minimap.floor = mlx_xpm_file_to_image(game->mlx, game->minimap.path_f, &w,
-			&h);
-	game->minimap.walls = mlx_xpm_file_to_image(game->mlx, game->minimap.path_w, &w,
-			&h);
-	game->minimap.player = mlx_xpm_file_to_image(game->mlx, game->minimap.path_p, &w,
-			&h);
+	//mettre les checks pour open les textures
+	// game->minimap.path_f = "./textures/minimap/tile123.xpm";
+	// game->minimap.path_w = "./textures/minimap/tile03.xpm";
+	// game->minimap.path_p = "./textures/minimap/light2.xpm";
+	// game->minimap.floor = mlx_xpm_file_to_image(game->mlx, game->minimap.path_f,
+	// 		&w, &h);
+	// game->minimap.walls = mlx_xpm_file_to_image(game->mlx, game->minimap.path_w,
+	// 		&w, &h);
+	// game->minimap.player = mlx_xpm_file_to_image(game->mlx,
+	// 		game->minimap.path_p, &w, &h);
 }

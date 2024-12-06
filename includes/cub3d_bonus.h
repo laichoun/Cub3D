@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 14:11:55 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:59:18 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ typedef struct s_textures
 
 typedef struct s_minimap
 {
-	t_img		*floor;
-	t_img		*walls;
-	t_img		*player;
-	char		*path_f;
-	char		*path_w;
-	char		*path_p;
+	// t_img		*floor;
+	// t_img		*walls;
+	// t_img		*player;
+	// char		*path_f;
+	// char		*path_w;
+	// char		*path_p;
 	int			mini_bpp;
 	int			mini_size_line;
 	int			mini_endian;
