@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:38 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 12:07:27 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:49:36 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	render(t_game *game)
 			game->dist_perp = (game->side_dist_x - game->delta_x);
 		else
 			game->dist_perp = (game->side_dist_y - game->delta_y);
-		draw_vertline(game, x);
+		draw_vertline(game, WIDTH - x);
 	}
 	draw_minimap(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
