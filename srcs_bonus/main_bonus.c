@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:30:08 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 15:48:53 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:52:49 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ static void	init_bonus_textures(t_game *g)
 
 	h = 0;
 	w = 0;
+	g->start[0] = mlx_xpm_file_to_image(g->mlx, "textures/startscreen/gopher2.xpm", &w, &h);
+	g->start[1] = mlx_xpm_file_to_image(g->mlx, "textures/startscreen/gopher2.xpm", &w, &h);
 	g->door = mlx_xpm_file_to_image(g->mlx, "textures/castle/door.xpm", &w, &h);
 	if (WIDTH < 1920 || HEIGHT < 1080)
 	{

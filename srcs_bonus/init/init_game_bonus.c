@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:22 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 11:48:04 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:22:43 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ int	init_game_data(t_game *gamep, t_file *file)
 	gamep->row = file->height;
 	gamep->col = file->width;
 	gamep->old_mpos_x = 0;
+	gamep->state = 0;
 	init_raycast(gamep, file);
 	set_player_dir(gamep, file);
 	set_textures(gamep, file);

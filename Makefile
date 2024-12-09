@@ -62,6 +62,8 @@ BSRC_FILES =	main_bonus.c \
 			utils/free_bonus.c \
 			render/raycasting_bonus.c \
 			render/mlx_draw_vertline_bonus.c \
+			render/render_bonus.c \
+			render/startscreen_bonus.c \
 			render/animation_bonus.c \
 			events/key_handle_bonus.c \
 			events/keys_utils_bonus.c \
@@ -78,8 +80,8 @@ BOBJS = $(addprefix $(BOBJ_DIR), $(BSRC_FILES:.c=.o))
 #MLX
 # je sais pas pq le flag -lmlx_Linux compile pas check si tu as ces flags
 # I don't know why the flag -lmlx_Linux doesn't compile. help
-#MLX_FLAGS = -Lmlx -lmlx -lXext -lX11 -lm -lz
-MLX_FLAGS	= -Lmlx -lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
+MLX_FLAGS = -Lmlx -lmlx -lXext -lX11 -lm -lz
+#MLX_FLAGS	= -Lmlx -lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 MLX_PATH	=	./mlx
 MLX 		=	$(MLX_PATH)/libmlx.a
 

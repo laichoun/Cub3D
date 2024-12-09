@@ -6,12 +6,11 @@
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 10:07:28 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 10:16:24 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:13:17 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
-#include <stdio.h>
 
 void	draw_torch(t_game *g, int frame);
 

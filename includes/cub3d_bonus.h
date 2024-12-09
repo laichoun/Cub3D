@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 16:19:46 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:48:10 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_game
 	t_img		*cur_tex;
 	t_img		*door;
 	t_img		*torch[3];
+	t_img		*start[2];
 	float		t_coefx;
 	float		t_coefy;
 	float		pos_x;
@@ -112,9 +113,10 @@ typedef struct s_game
 	int			tex_bpp;
 	int			tex_size_line;
 	int			tex_endian;
+	int			state;
 }				t_game;
 
-// init how to name functions? initGameAssets? or parseGameDAta? load_gameData?
+//init / parsing
 int				init_game(t_game *game, char *filename);
 int				init_game_data(t_game *gamep, t_file *data);
 void			init_blank_game(t_game *gamep);
@@ -129,7 +131,10 @@ void			draw_vertline(t_game *game, int x, int hit);
 
 // render
 int				render(t_game *game);
+int				render_raycast(t_game *game);
 void			render_animation(t_game *game);
+int				draw_minimap(t_game *game);
+
 // key_handle
 int				key_handle(int key, t_game *game);
 int				close_window(t_game *game);
