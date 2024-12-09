@@ -24,8 +24,6 @@ int	key_handle(int key, t_game *game)
 		a_key(game);
 	if (key == XK_d)
 		d_key(game);
-	if (key == XK_c)
-		hide_show_mouse(game);
 	if (key == 65363)
 		right_arrow_key(game);
 	if (key == 65361)

@@ -14,7 +14,7 @@
 
 int	init_raycast(t_game *game, t_file *file)
 {
-	game->pos_x = (float) file->player_x;
-	game->pos_y = (float) file->player_y;
+	game->pos_x = (float) file->player_x + 0.5;
+	game->pos_y = (float) file->player_y + 0.5;
 	return (SUCCESS);
 }

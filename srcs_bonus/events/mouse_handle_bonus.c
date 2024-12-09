@@ -27,22 +27,6 @@ int	mouse_handle(int x, int y, t_game *game)
 	return (SUCCESS);
 }
 
-void	hide_show_mouse(t_game *game)
-{
-	static int	h = 0;
-
-	if (h == 0)
-	{
-		mlx_mouse_hide(game->mlx, game->win);
-		h = 1;
-	}
-	else
-	{
-		mlx_mouse_show(game->mlx, game->win);
-		h = 0;
-	}
-}
-
 static void	mouse_left(t_game *game)
 {
 	float		temp_dir_x;

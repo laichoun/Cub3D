@@ -48,17 +48,17 @@ static void	init_bonus_textures(t_game *g)
 
 	h = 0;
 	w = 0;
-	g->door = mlx_xpm_file_to_image(g->mlx, "textures/door.xpm", &w, &h);
+	g->door = mlx_xpm_file_to_image(g->mlx, "textures/castle/door.xpm", &w, &h);
 	if (WIDTH < 1920 || HEIGHT < 1080)
 	{
-		g->torch[0] = mlx_xpm_file_to_image(g->mlx, "textures/atorch1.xpm", &w, &h);
-		g->torch[1] = mlx_xpm_file_to_image(g->mlx, "textures/atorch2.xpm", &w, &h);
-		g->torch[2] = mlx_xpm_file_to_image(g->mlx, "textures/atorch3.xpm", &w, &h);
+		g->torch[0] = mlx_xpm_file_to_image(g->mlx, "textures/torch/atorch1.xpm", &w, &h);
+		g->torch[1] = mlx_xpm_file_to_image(g->mlx, "textures/torch/atorch2.xpm", &w, &h);
+		g->torch[2] = mlx_xpm_file_to_image(g->mlx, "textures/torch/atorch3.xpm", &w, &h);
 	}
 	else
 	{
-		g->torch[0] = mlx_xpm_file_to_image(g->mlx, "textures/abtorch1.xpm", &w, &h);
-		g->torch[1] = mlx_xpm_file_to_image(g->mlx, "textures/abtorch2.xpm", &w, &h);
-		g->torch[2] = mlx_xpm_file_to_image(g->mlx, "textures/abtorch3.xpm", &w, &h);
+		g->torch[0] = mlx_xpm_file_to_image(g->mlx, "textures/torch/abtorch1.xpm", &w, &h);
+		g->torch[1] = mlx_xpm_file_to_image(g->mlx, "textures/torch/abtorch2.xpm", &w, &h);
+		g->torch[2] = mlx_xpm_file_to_image(g->mlx, "textures/torch/abtorch3.xpm", &w, &h);
 	}
 }
