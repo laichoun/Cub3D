@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
+#include <stdio.h>
 
 void	draw_torch(t_game *g, int frame);
 
@@ -46,11 +47,16 @@ void	draw_torch(t_game *g, int frame)
 		y = -1;
 		while (++y < g->torch[frame]->height)
 		{
+			if ((int)(x + g->t_coefx + WIDTH / 5) >= g->screen->width ||
+			//((int)(y + g->t_coefy + HEIGHT - HEIGHT / 2.)) >= g->screen->height)
+			((int)(y + g->t_coefy + 30 )) >= g->screen->height)
+				continue ;
 			color = t[y * g->torch[frame]->width + x];
 			if (color == 0x00000000)
 				continue ;
-			d[(int)(y + g->t_coefy + HEIGHT - HEIGHT / 2.) * g->size_line / 4
-				+(int)(x + g->t_coefx + WIDTH - WIDTH / 3.)] = color;
+			//d[(int)(y + g->t_coefy + HEIGHT - HEIGHT / 2.) * g->size_line / 4
+			d[(int)(y + g->t_coefy + 30) * g->size_line / 4
+				+(int)(x + g->t_coefx + WIDTH / 5)] = color;
 		}
 	}
 }
