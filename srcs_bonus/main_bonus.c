@@ -41,6 +41,16 @@ static void	looping_youhouuuuuuuuuuuuuuu(t_game *game)
 	mlx_loop(game->mlx);
 }
 
+static void	init_texture(void *mlx, t_img **img, char *name)
+{
+	int	h;
+	int	w;
+
+	h = 0;
+	w = 0;
+	*img = mlx_xpm_file_to_image(mlx, name, &w, &h);
+}
+
 static void	init_bonus_textures(t_game *g)
 {
 	int	h;
@@ -48,19 +58,19 @@ static void	init_bonus_textures(t_game *g)
 
 	h = 0;
 	w = 0;
-	g->start[0] = mlx_xpm_file_to_image(g->mlx, "textures/startscreen/gopher2.xpm", &w, &h);
-	g->start[1] = mlx_xpm_file_to_image(g->mlx, "textures/startscreen/gopher2.xpm", &w, &h);
-	g->door = mlx_xpm_file_to_image(g->mlx, "textures/castle/door.xpm", &w, &h);
+	init_texture(g->mlx, &g->start[0], "textures/startscreen/gopher2.xpm");
+	init_texture(g->mlx, &g->start[1], "textures/startscreen/gopher2.xpm");
+	init_texture(g->mlx, &g->door, "textures/castle/door.xpm");
 	if (WIDTH < 1920 || HEIGHT < 1080)
 	{
-		g->torch[0] = mlx_xpm_file_to_image(g->mlx, "textures/torch/atorch1.xpm", &w, &h);
-		g->torch[1] = mlx_xpm_file_to_image(g->mlx, "textures/torch/atorch2.xpm", &w, &h);
-		g->torch[2] = mlx_xpm_file_to_image(g->mlx, "textures/torch/atorch3.xpm", &w, &h);
+		init_texture(g->mlx, &g->torch[0], "textures/torch/atorch1.xpm");
+		init_texture(g->mlx, &g->torch[1], "textures/torch/atorch2.xpm");
+		init_texture(g->mlx, &g->torch[2], "textures/torch/atorch3.xpm");
 	}
 	else
 	{
-		g->torch[0] = mlx_xpm_file_to_image(g->mlx, "textures/torch/abtorch1.xpm", &w, &h);
-		g->torch[1] = mlx_xpm_file_to_image(g->mlx, "textures/torch/abtorch2.xpm", &w, &h);
-		g->torch[2] = mlx_xpm_file_to_image(g->mlx, "textures/torch/abtorch3.xpm", &w, &h);
+		init_texture(g->mlx, &g->torch[0], "textures/torch/abtorch1.xpm");
+		init_texture(g->mlx, &g->torch[1], "textures/torch/abtorch2.xpm");
+		init_texture(g->mlx, &g->torch[2], "textures/torch/abtorch3.xpm");
 	}
 }

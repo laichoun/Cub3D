@@ -19,20 +19,22 @@ int	key_handle(int key, t_game *game)
 {
 	if (key == XK_Escape)
 		mlx_loop_end(game->mlx);
-	if (key == XK_space)
+	else if (key == XK_space)
 		space_key(game);
-	if (key == XK_w)
+	else if (key == XK_w)
 		w_key(game);
-	if (key == XK_s)
+	else if (key == XK_s)
 		s_key(game);
-	if (key == XK_a)
+	else if (key == XK_a)
 		a_key(game);
-	if (key == XK_d)
+	else if (key == XK_d)
 		d_key(game);
-	if (key == 65363)
+	else if (key == XK_Right)
 		right_arrow_key(game);
-	if (key == 65361)
+	else if (key == XK_Left)
 		left_arrow_key(game);
+	else if (key == XK_Return)
+		game->state = 1;
 	torch_anim(game, key);
 	return (SUCCESS);
 }
