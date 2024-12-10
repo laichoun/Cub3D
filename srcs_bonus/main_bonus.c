@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:30:08 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/09 16:52:49 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:04:16 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,6 @@ static void	init_texture(void *mlx, t_img **img, char *name)
 
 static void	init_bonus_textures(t_game *g)
 {
-	int	h;
-	int	w;
-
-	h = 0;
-	w = 0;
 	init_texture(g->mlx, &g->start[0], "textures/startscreen/gopher2.xpm");
 	init_texture(g->mlx, &g->start[1], "textures/startscreen/gopher2.xpm");
 	init_texture(g->mlx, &g->door, "textures/castle/door.xpm");
