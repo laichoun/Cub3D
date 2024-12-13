@@ -25,8 +25,9 @@ int	render(t_game *game)
 		return (FAILURE);
 	if (game->state == 0)
 		render_startscreen(game);
-	else if ((cur.tv_sec - last.tv_sec) * 1000 + (cur.tv_usec - last.tv_usec) / 1000 >= 1000/30)
-	{
+	/*else if ((cur.tv_sec - last.tv_sec) * 1000 + (cur.tv_usec - last.tv_usec)
+		/ 1000 >= 1000 / 30)*/
+	else {
 		render_raycast(game);
 		draw_minimap(game);
 		render_animation(game);
@@ -45,7 +46,8 @@ void	fps(t_game *game, struct timeval cur)
 	static int				last_count = 0;
 	char					*num;
 
-	if ((cur.tv_sec - fps.tv_sec) * 1000 + (cur.tv_usec - fps.tv_usec) / 1000 >= 1000)
+	if ((cur.tv_sec - fps.tv_sec) * 1000 + (cur.tv_usec - fps.tv_usec)
+		/ 1000 >= 1000)
 	{
 		last_count = count;
 		count = 0;
@@ -53,8 +55,9 @@ void	fps(t_game *game, struct timeval cur)
 	}
 	num = ft_itoa(last_count);
 	if (!num)
-		return (void)0;
-	mlx_set_font(game->mlx, game->win, "-misc-fixed-bold-r-normal--18-120-100-100-c-90-iso8859-9");
+		return ((void)0);
+	mlx_set_font(game->mlx, game->win,
+		"-misc-fixed-bold-r-normal--18-120-100-100-c-90-iso8859-9");
 	mlx_string_put(game->mlx, game->win, 0, 15, 0xFFFF00, num);
 	++count;
 	free(num);
