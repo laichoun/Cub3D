@@ -22,6 +22,7 @@
 # include <X11/keysym.h>
 # include <fcntl.h>
 # include <math.h>
+# include <sys/time.h>
 
 # define SUCCESS 0
 # define FAILURE 1
