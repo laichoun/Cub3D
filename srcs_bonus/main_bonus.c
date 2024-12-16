@@ -55,7 +55,7 @@ static void	init_bonus_textures(t_game *g)
 {
 	init_texture(g->mlx, &g->start[0], "textures/startscreen/castle.xpm");
 	init_texture(g->mlx, &g->start[1], "textures/startscreen/castle.xpm");
-	init_texture(g->mlx, &g->door, "textures/castle/door.xpm");
+	init_texture(g->mlx, &g->door, "textures/castle/door_v.xpm");
 	init_texture(g->mlx, &g->torch[0], "textures/torch/torch1.xpm");
 	init_texture(g->mlx, &g->torch[1], "textures/torch/torch2.xpm");
 	init_texture(g->mlx, &g->torch[2], "textures/torch/torch3.xpm");

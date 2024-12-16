@@ -1,10 +1,10 @@
-NO textures/xmas/background.xpm
-SO textures/xmas/background.xpm
-WE textures/xmas/background.xpm
-EA textures/xmas/background.xpm
+NO textures/castle/banner.xpm
+SO textures/castle/walls.xpm
+WE textures/castle/windows.xpm
+EA textures/castle/walls.xpm
 
-F 198, 245, 255
-C 59, 71, 148
+F 99, 99, 99
+C 59, 59, 59
 
         1111111111111111111111111
         1000000000110000000000001
