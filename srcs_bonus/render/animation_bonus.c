@@ -37,23 +37,22 @@ void	draw_torch(t_game *g, int frame)
 	int	*t;
 	int	color;
 
-	d = (int *)mlx_get_data_addr(g->screen, &g->bpp, &g->size_line, &g->endian);
-	t = (int *)mlx_get_data_addr(g->torch[frame], &g->tex_bpp,
-			&g->tex_size_line, &g->tex_endian);
+	d = (int *)g->screen->data;
+	t = (int *)g->torch[frame]->data;
 	x = -1;
 	while (++x < g->torch[frame]->width)
 	{
 		y = -1;
 		while (++y < g->torch[frame]->height)
 		{
-			if ((int)(x + g->t_coefx + 0) >= g->screen->width ||
+			if ((int)(x + g->t_coefx) >= g->screen->width ||
 			((int)(y + g->t_coefy + 30)) >= g->screen->height)
 				continue ;
 			color = t[y * g->torch[frame]->width + x];
 			if (color == 0x00000000)
 				continue ;
-			d[(int)(y + g->t_coefy + 30) * g->size_line / 4
-				+(int)(x + g->t_coefx + 0)] = color;
+			d[(int)(y + g->t_coefy + 30) * g->screen->width
+				+(int)(x + g->t_coefx)] = color;
 		}
 	}
 }

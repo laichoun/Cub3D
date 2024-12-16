@@ -27,8 +27,6 @@
 # define SUCCESS 0
 # define FAILURE 1
 
-//# define WIDTH 1280
-//# define HEIGHT 720
 # define WIDTH 1920
 # define HEIGHT 1080
 
@@ -59,16 +57,8 @@ typedef struct s_textures
 	int			c_rgb;
 }				t_textures;
 
-typedef struct s_minimap
-{
-	int			mini_bpp;
-	int			mini_size_line;
-	int			mini_endian;
-}				t_minimap;
-
 typedef struct s_game
 {
-	t_minimap	minimap;
 	t_textures	textures;
 	char		**map;
 	int			row;
@@ -77,7 +67,6 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	t_img		*screen;
-	t_img		*mini_map;
 	t_img		*cur_tex;
 	t_img		*door;
 	t_img		*torch[3];
@@ -98,7 +87,6 @@ typedef struct s_game
 	float		delta_y;
 	float		dist_perp;
 	float		ratio;
-	int			old_mpos_x;
 	int			ray_pos_x;
 	int			ray_pos_y;
 	int			step_x;
@@ -109,12 +97,6 @@ typedef struct s_game
 	int			tex_y;
 	float		tex_pos;
 	float		tex_step;
-	int			bpp;
-	int			size_line;
-	int			endian;
-	int			tex_bpp;
-	int			tex_size_line;
-	int			tex_endian;
 	int			state;
 }				t_game;
 

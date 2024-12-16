@@ -32,6 +32,5 @@ int	init_mlx(t_game *game, t_file *file)
 			&h);
 	game->textures.img_ea = mlx_xpm_file_to_image(game->mlx, file->tex_ea, &w,
 			&h);
-	game->mini_map = mlx_new_image(game->mlx, MINI_WIDTH, MINI_HEIGHT);
 	return (SUCCESS);
 }

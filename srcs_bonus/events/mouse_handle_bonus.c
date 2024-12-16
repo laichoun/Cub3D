@@ -17,15 +17,16 @@ static void	mouse_left(t_game *game);
 
 int	mouse_handle(int x, int y, t_game *game)
 {
+	static int	old_mpos = 0;
 	(void) x;
 	(void) y;
 	if (game->state == 0)
 		return (SUCCESS);
-	if (game->old_mpos_x < x || game->old_mpos_x == WIDTH - 1)
+	if (old_mpos < x || old_mpos == WIDTH - 1)
 		mouse_right(game);
-	else if (game->old_mpos_x > 0 || game->old_mpos_x == 0)
+	else if (old_mpos > 0 || old_mpos == 0)
 		mouse_left(game);
-	game->old_mpos_x = x;
+	old_mpos = x;
 	return (SUCCESS);
 }
 

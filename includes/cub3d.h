@@ -80,7 +80,6 @@ typedef struct s_game
 	float		delta_y;
 	float		dist_perp;
 	float		ratio;
-	int			old_mpos_x;
 	int			ray_pos_x;
 	int			ray_pos_y;
 	int			step_x;

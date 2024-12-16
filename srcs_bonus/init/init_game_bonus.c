@@ -98,7 +98,6 @@ int	init_game_data(t_game *gamep, t_file *file)
 	gamep->map = ft_dupsplit(file->map);
 	gamep->row = file->height;
 	gamep->col = file->width;
-	gamep->old_mpos_x = 0;
 	gamep->state = 0;
 	init_raycast(gamep, file);
 	set_player_dir(gamep, file);

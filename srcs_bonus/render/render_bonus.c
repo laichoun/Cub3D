@@ -18,7 +18,7 @@ void	fps(t_game *game, struct timeval cur);
 
 int	render(t_game *game)
 {
-	static struct timeval	last;
+	//static struct timeval	last;
 	struct timeval			cur;
 
 	if (gettimeofday(&cur, NULL) == -1)
@@ -34,7 +34,7 @@ int	render(t_game *game)
 		player_actions(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
 		fps(game, cur);
-		last = cur;
+		//last = cur;
 	}
 	return (SUCCESS);
 }
