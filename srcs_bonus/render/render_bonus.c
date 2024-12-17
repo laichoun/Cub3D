@@ -18,23 +18,23 @@ void	fps(t_game *game, struct timeval cur);
 
 int	render(t_game *game)
 {
-	//static struct timeval	last;
+	static struct timeval	last;
 	struct timeval			cur;
 
 	if (gettimeofday(&cur, NULL) == -1)
 		return (FAILURE);
 	if (game->state == 0)
 		render_startscreen(game);
-	/*else if ((cur.tv_sec - last.tv_sec) * 1000 + (cur.tv_usec - last.tv_usec)
-		/ 1000 >= 1000 / 30)*/
-	else {
+	else if ((cur.tv_sec - last.tv_sec) * 1000 + (cur.tv_usec - last.tv_usec)
+		/ 1000 >= 1000 / 30)
+	{
 		render_raycast(game);
 		draw_minimap(game);
 		render_animation(game);
 		player_actions(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
 		fps(game, cur);
-		//last = cur;
+		last = cur;
 	}
 	return (SUCCESS);
 }
