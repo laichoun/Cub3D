@@ -13,7 +13,6 @@
 #include "../../includes/cub3d_bonus.h"
 
 //void	init_minimap(t_game *game);
-
 int	init_mlx(t_game *game, t_file *file)
 {
 	int	w;

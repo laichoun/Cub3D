@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/12 15:51:54 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:37:11 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct s_game
 	t_img		*cur_tex;
 	t_img		*door;
 	t_img		*torch[3];
-	t_img		*start[2];
+	t_img		*start[3];
 	float		t_coefx;
 	float		t_coefy;
 	float		pos_x;
