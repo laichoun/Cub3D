@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:30:08 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/17 18:07:15 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:19:36 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,6 @@ int	init_window(t_game *game)
 	return SUCCESS;
 }
 
-void	free_window(t_game *game)
-{
-	mlx_destroy_image(game->mlx, game->screen);
-	mlx_destroy_image(game->mlx, game->door);
-	mlx_destroy_image(game->mlx, game->torch[0]);
-	mlx_destroy_image(game->mlx, game->torch[1]);
-	mlx_destroy_image(game->mlx, game->torch[2]);
-	mlx_destroy_image(game->mlx, game->start[0]);
-	mlx_destroy_image(game->mlx, game->start[1]);
-	mlx_destroy_image(game->mlx, game->start[2]);
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
-}
-
 int	launch_game(t_game *game)
 {
 	init_blank_game(game);
@@ -62,6 +47,7 @@ int	main(int argc, char *argv[])
 		return (err_msg(100, "send help"), FAILURE);
 	init_bonus_textures(&game);
 	looping_youhouuuuuuuuuuuuuuu(&game);
+	free_game(&game);
 	free_window(&game);
 	return (0);
 }

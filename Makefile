@@ -76,6 +76,7 @@ BSRC_FILES =	main_bonus.c \
 			events/close_window_bonus.c \
 			events/movement_keys_bonus.c \
 			events/rotation_keys_bonus.c \
+			events/mapselection_bonus.c \
 			minimap/minimap_bonus.c \
 
 BSRCS = $(addprefix $(BSRC_DIR), $(BSRC_FILES))

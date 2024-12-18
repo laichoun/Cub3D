@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/17 17:37:11 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:04:34 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,10 @@ typedef struct s_game
 }				t_game;
 
 //init / parsing
-int				init_game(t_game *game, char *filename);
-int				init_game_data(t_game *gamep, t_file *data);
+int				new_map(t_game *game, char *filename);
+int				init_gamemap(t_game *gamep, t_file *data);
 void			init_blank_game(t_game *gamep);
 int				init_mlx(t_game *game, t_file *file);
-void			free_game(t_game *game);
 void			skip_newlines(t_file *file, int *i);
 int				set_player_dir(t_game *gamep, t_file *file);
 int				init_raycast(t_game *game, t_file *file);
@@ -136,11 +135,15 @@ void			left_arrow_key(t_game *game);
 void			hide_show_mouse(t_game *game);
 int				mouse_handle(int x, int y, t_game *game);
 int				is_coll(int x, int y, char **map);
+void			handle_map_menu(int key, t_game *game);
 
 //actions
 void	player_actions(t_game *game);
 int		is_moving(t_game *game);
 
+//free
+void	free_window(t_game *game);
+void	free_game(t_game *game);
 // error
 void			err_msg(int err_code, char *msg);
 

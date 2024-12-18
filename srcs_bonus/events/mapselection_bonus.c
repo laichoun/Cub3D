@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_blank_game_bonus.c                            :+:      :+:    :+:   */
+/*   mapselection_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 11:27:11 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 17:08:54 by pibernar         ###   ########.fr       */
+/*   Created: 2024/12/18 10:41:43 by pibernar          #+#    #+#             */
+/*   Updated: 2024/12/18 17:14:01 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
-void	init_blank_game(t_game *gamep)
+void	handle_map_menu(int key, t_game *game)
 {
-	gamep->map = NULL;
-	gamep->textures.img_no = NULL;
-	gamep->textures.img_so = NULL;
-	gamep->textures.img_ea = NULL;
-	gamep->textures.img_we = NULL;
-	gamep->textures.f_rgb = -1;
-	gamep->textures.c_rgb = -1;
+	(void) key;
+	//This is only for testing
+	/*pseudo:
+	* init_map(game)	// sets up map and game variable needed for the game from the file
+	*					// the chosen file depends on the input of the player
+	*/
+	if (key == XK_1)
+	{
+		if (new_map(game, "maps/bonus/castle_1.cub") == FAILURE)
+			return (free_game(game), (void)0);
+		game->state = 2;
+	}
 }
