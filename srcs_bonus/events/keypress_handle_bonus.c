@@ -32,9 +32,9 @@ int	keypress_handle(int key, t_game *game)
 			game->state = 1;
 			free_game(game);
 		}
-		if (game->state == 1)
+		else if (game->state == 1)
 			game->state = 0;
-		if (game->state == 0)
+		else if (game->state == 0)
 			mlx_loop_end(game->mlx);
 	}
 	return (SUCCESS);
