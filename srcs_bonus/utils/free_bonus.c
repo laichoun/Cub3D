@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:56 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 17:20:04 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:58:35 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,19 @@ void	free_bonus(t_game *game);
 void	free_game(t_game *game)
 {
 	ft_free_split(game->map);
-	mlx_destroy_image(game->mlx, game->textures.img_no);
-	mlx_destroy_image(game->mlx, game->textures.img_so);
-	mlx_destroy_image(game->mlx, game->textures.img_ea);
-	mlx_destroy_image(game->mlx, game->textures.img_we);
+	if (game->textures.img_no != NULL)
+		mlx_destroy_image(game->mlx, game->textures.img_no);
+	if (game->textures.img_so != NULL)
+		mlx_destroy_image(game->mlx, game->textures.img_so);
+	if (game->textures.img_ea != NULL)
+		mlx_destroy_image(game->mlx, game->textures.img_ea);
+	if (game->textures.img_we != NULL)
+		mlx_destroy_image(game->mlx, game->textures.img_we);
+	game->map = NULL;
+	game->textures.img_no = NULL;
+	game->textures.img_so = NULL;
+	game->textures.img_ea = NULL;
+	game->textures.img_we = NULL;
 }
 
 void	free_window(t_game *game)

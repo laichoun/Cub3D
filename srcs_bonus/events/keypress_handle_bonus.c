@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:33:44 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 17:20:47 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/18 18:00:11 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,14 @@ int	keypress_handle(int key, t_game *game)
 	if (key == XK_Escape)
 	{
 		if (game->state == 2)
+		{
+			game->state = 1;
 			free_game(game);
-		game->state = 0;
+		}
+		if (game->state == 1)
+			game->state = 0;
+		if (game->state == 0)
+			mlx_loop_end(game->mlx);
 	}
 	return (SUCCESS);
 }

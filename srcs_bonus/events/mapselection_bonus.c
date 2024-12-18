@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:41:43 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 17:14:01 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:54:04 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ void	handle_map_menu(int key, t_game *game)
 	if (key == XK_1)
 	{
 		if (new_map(game, "maps/bonus/castle_1.cub") == FAILURE)
-			return (free_game(game), (void)0);
+			return ((void)0);
+		game->state = 2;
+	}
+	if (key == XK_2)
+	{
+		if (new_map(game, "maps/bonus/castle_2.cub") == FAILURE)
+			return ((void)0);
 		game->state = 2;
 	}
 }
