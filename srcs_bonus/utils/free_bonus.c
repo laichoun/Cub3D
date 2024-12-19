@@ -70,4 +70,5 @@ void	free_bonus(t_game *game)
 	mlx_destroy_image(game->mlx, game->start[0]);
 	mlx_destroy_image(game->mlx, game->start[1]);
 	mlx_destroy_image(game->mlx, game->start[2]);
+	mlx_destroy_image(game->mlx, game->start[3]);
 }
