@@ -40,5 +40,5 @@ int	handle_door(char **map, int x, int y)
 
 int	is_coll(int x, int y, char **map)
 {
-	return (map[y][x] == '1' || map[y][x] == 'D');
+	return (map[y][x] == '1' || map[y][x] == 'D' || map[y][x] == 'L' || map[y][x] == 'B');
 }

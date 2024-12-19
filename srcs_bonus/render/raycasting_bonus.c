@@ -79,9 +79,9 @@ int	set_hit(t_game *game)
 	if (game->map[game->ray_pos_y][game->ray_pos_x] == 'D')
 		return (2);
 	if (game->map[game->ray_pos_y][game->ray_pos_x] == 'L')
-		return (2);
+		return (3);
 	if (game->map[game->ray_pos_y][game->ray_pos_x] == 'B')
-		return (2);
+		return (4);
 	return (0);
 }
 

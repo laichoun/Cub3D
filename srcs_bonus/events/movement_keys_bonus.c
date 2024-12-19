@@ -12,6 +12,8 @@
 
 #include "../../includes/cub3d_bonus.h"
 
+int	load_next_map(t_game *game);
+
 void	w_key(t_game *game)
 {
 	float	hitbox;
@@ -141,6 +143,8 @@ void	space_key(t_game *game)
 				map[y + j][x + i] = 'O';
 			else if (map[y + j][x + i] == 'O')
 				map[y + j][x + i] = 'D';
+			else if (map[y + j][x + i] == 'L' || map[y + j][x + i] == 'B')
+				return (load_next_map(game), (void)0);
 		}
 	}
 }

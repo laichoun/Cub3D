@@ -31,7 +31,7 @@ int	render(t_game *game)
 			render_startscreen(game);
 		else if (game->state == 1)
 			render_mapselection(game);
-		else if (game->state == 2)
+		else if (game->state == 2 && game->mapid < 2)
 		{
 			render_raycast(game);
 			draw_minimap(game);
@@ -39,6 +39,8 @@ int	render(t_game *game)
 			player_actions(game);
 			mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
 		}
+		else if (game->mapid == 2)
+			mlx_put_image_to_window(game->mlx, game->win, game->start[3], 0, 0);
 		fps(game, cur);
 		last = cur;
 	}

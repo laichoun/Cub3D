@@ -70,7 +70,9 @@ typedef struct s_game
 	t_img		*cur_tex;
 	t_img		*door[3];
 	t_img		*torch[3];
-	t_img		*start[3];
+	t_img		*start[4];
+	char		*level[10];
+	int			mapid;
 	float		t_coefx;
 	float		t_coefy;
 	float		pos_x;

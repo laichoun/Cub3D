@@ -44,6 +44,9 @@ int	main(int argc, char *argv[])
 	if (launch_game(&game) == FAILURE)
 		return (err_msg(100, "send help"), FAILURE);
 	init_bonus_textures(&game);
+	game.level[0] = "maps/bonus/castle_1.cub";
+	game.level[1] = "maps/bonus/castle_2.cub";
+	game.mapid = 0;
 	looping_youhouuuuuuuuuuuuuuu(&game);
 	free_game(&game);
 	free_window(&game);
@@ -76,9 +79,10 @@ static void	init_bonus_textures(t_game *g)
 	init_xpm(g->mlx, &g->start[0], "textures/menu/startscreen.xpm");
 	init_xpm(g->mlx, &g->start[1], "textures/menu/startscreen.xpm");
 	init_xpm(g->mlx, &g->start[2], "textures/menu/mapselectionplaceholder.xpm");
+	init_xpm(g->mlx, &g->start[3], "textures/menu/boss.xpm");
 	init_xpm(g->mlx, &g->door[0], "textures/castle/door_v.xpm");
-	init_xpm(g->mlx, &g->door[1], "textures/castle/secret.xpm");
-	init_xpm(g->mlx, &g->door[2], "textures/castle/door_v.xpm");
+	init_xpm(g->mlx, &g->door[1], "textures/castle/secret1.xpm");
+	init_xpm(g->mlx, &g->door[2], "textures/castle/bossroom1.xpm");
 	init_xpm(g->mlx, &g->torch[0], "textures/torch/torch1.xpm");
 	init_xpm(g->mlx, &g->torch[1], "textures/torch/torch2.xpm");
 	init_xpm(g->mlx, &g->torch[2], "textures/torch/torch3.xpm");
