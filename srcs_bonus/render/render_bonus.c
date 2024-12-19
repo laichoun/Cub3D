@@ -39,7 +39,7 @@ int	render(t_game *game)
 			player_actions(game);
 			mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
 		}
-		else if (game->mapid == 2)
+		else if (game->state == 3)
 			mlx_put_image_to_window(game->mlx, game->win, game->start[3], 0, 0);
 		fps(game, cur);
 		last = cur;

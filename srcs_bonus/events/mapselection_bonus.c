@@ -36,10 +36,12 @@ void	handle_map_menu(int key, t_game *game)
 
 int	load_next_map(t_game *game)
 {
-	if (game->mapid < 2)
+	if (game->mapid < 1)
 	{
 		free_game(game);
 		new_map(game, game->level[++game->mapid]);
 	}
+	else
+		game->state = 3;
 	return (SUCCESS);
 }
