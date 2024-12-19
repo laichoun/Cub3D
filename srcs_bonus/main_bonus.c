@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:30:08 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 17:19:36 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/19 17:01:03 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ int	main(int argc, char *argv[])
 	if (launch_game(&game) == FAILURE)
 		return (err_msg(100, "send help"), FAILURE);
 	init_bonus_textures(&game);
-	game.level[0] = "maps/bonus/castle_1.cub";
-	game.level[1] = "maps/bonus/castle_2.cub";
-	game.mapid = 0;
+	map_menu(&game);
+	//game.level[0] = "maps/bonus/castle_1.cub";
+	//game.level[1] = "maps/bonus/castle_2.cub";
+	//game.mapid = 0;
 	looping_youhouuuuuuuuuuuuuuu(&game);
 	free_game(&game);
 	free_window(&game);

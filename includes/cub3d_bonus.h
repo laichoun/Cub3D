@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 17:04:34 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/19 17:07:01 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,10 @@ void			torch_anim(t_game *game);
 // key_handle
 int				key_handle(int key, t_game *game);
 int				close_window(t_game *game);
+
+int	map_menu(t_game *game);
+
+
 // keys
 int				keypress_handle(int key, t_game *game);
 int				keyrelease_handle(int key, t_game *game);
