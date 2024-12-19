@@ -3,23 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   mapselection_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:41:43 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 17:54:04 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:06:03 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
+/*
+char	**creation_tab_map(t_game *game)
+{
+	int	i;
+
+	i = 0;
+}
+*/
+
 void	handle_map_menu(int key, t_game *game)
 {
-	(void) key;
-	//This is only for testing
-	/*pseudo:
-	* init_map(game)	// sets up map and game variable needed for the game from the file
-	*					// the chosen file depends on the input of the player
-	*/
 	if (key == XK_1)
 	{
 		if (new_map(game, "maps/bonus/castle_1.cub") == FAILURE)
