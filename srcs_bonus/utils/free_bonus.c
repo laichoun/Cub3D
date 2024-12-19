@@ -61,7 +61,9 @@ void	free_cardinals(t_file *file)
 
 void	free_bonus(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->door);
+	mlx_destroy_image(game->mlx, game->door[0]);
+	mlx_destroy_image(game->mlx, game->door[1]);
+	mlx_destroy_image(game->mlx, game->door[2]);
 	mlx_destroy_image(game->mlx, game->torch[0]);
 	mlx_destroy_image(game->mlx, game->torch[1]);
 	mlx_destroy_image(game->mlx, game->torch[2]);

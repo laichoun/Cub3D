@@ -41,7 +41,8 @@ int	check_components(t_file *file)
 				&& file->map[i][j] != 'W' && file->map[i][j] != 'E'
 				&& file->map[i][j] != '1' && file->map[i][j] != '0'
 				&& file->map[i][j] != 'D' && file->map[i][j] != 'O'
-				&& file->map[i][j] != ' ')
+				&& file->map[i][j] != ' ' && file->map[i][j] != 'L'
+				&& file->map[i][j] != 'B')
 				return (err_msg(ERROR_CHAR, NULL), FAILURE);
 			j++;
 		}

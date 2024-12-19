@@ -68,7 +68,7 @@ typedef struct s_game
 	void		*win;
 	t_img		*screen;
 	t_img		*cur_tex;
-	t_img		*door;
+	t_img		*door[3];
 	t_img		*torch[3];
 	t_img		*start[3];
 	float		t_coefx;

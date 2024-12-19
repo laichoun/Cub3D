@@ -29,7 +29,11 @@ void	set_cur_texture(t_game *game, int hit)
 			game->cur_tex = game->textures.img_no;
 	}
 	else if (hit == 2)
-		game->cur_tex = game->door;
+		game->cur_tex = game->door[0];
+	else if (hit == 3)
+		game->cur_tex = game->door[1];
+	else if (hit == 4)
+		game->cur_tex = game->door[2];
 }
 
 // to make it darker
