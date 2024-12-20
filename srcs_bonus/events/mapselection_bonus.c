@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:41:43 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/20 11:54:10 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:32:59 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	handle_map_menu(int key, t_game *game)
 
 int	load_next_map(t_game *game)
 {
-	if (game->mapid < 1)
+	if (game->mapid < 8)
 	{
 		free_game(game);
 		new_map(game, game->level[++game->mapid]);

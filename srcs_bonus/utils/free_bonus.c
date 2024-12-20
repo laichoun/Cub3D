@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:56 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 17:58:35 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:41:26 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,8 @@ void	free_bonus(t_game *game)
 	mlx_destroy_image(game->mlx, game->start[1]);
 	mlx_destroy_image(game->mlx, game->start[2]);
 	mlx_destroy_image(game->mlx, game->start[3]);
+	mlx_destroy_image(game->mlx, game->start[4]);
+	mlx_destroy_image(game->mlx, game->start[5]);
+	mlx_destroy_image(game->mlx, game->start[6]);
+	mlx_destroy_image(game->mlx, game->start[7]);
 }

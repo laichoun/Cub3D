@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:20:50 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/10 10:20:52 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:59:54 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	select_color(t_game *game, int x, int y)
 	pos_y = 10 * (y * 2.0 / MINI_HEIGHT - 1) + game->pos_y;
 	if (pos_x >= game->col || pos_y >= game->row || pos_x < 0 || pos_y < 0)
 		return (-1);
-	if (x <= MINI_WIDTH * 0.5 + px && x >= MINI_WIDTH * 0.5 - px && y <= MINI_HEIGHT
+	if (x <= MINI_WIDTH / 2 + px && x >= MINI_WIDTH / 2 - px && y <= MINI_HEIGHT
 		* 0.5 + px && y >= MINI_HEIGHT * 0.5 - px)
 		return (0x00FF0000);
 	else if (game->map[(int)pos_y][(int)pos_x] == '1')
