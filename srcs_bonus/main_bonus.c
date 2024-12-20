@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:30:08 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/19 17:01:03 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/20 14:09:41 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 static void	looping_youhouuuuuuuuuuuuuuu(t_game *game);
 static void	init_bonus_textures(t_game *game);
 void		init_blank_game(t_game *gamep);
+
+int	mouse_selection(int x, int y, t_game *game);
 
 int	init_window(t_game *game)
 {
@@ -45,9 +47,6 @@ int	main(int argc, char *argv[])
 		return (err_msg(100, "send help"), FAILURE);
 	init_bonus_textures(&game);
 	map_menu(&game);
-	//game.level[0] = "maps/bonus/castle_1.cub";
-	//game.level[1] = "maps/bonus/castle_2.cub";
-	//game.mapid = 0;
 	looping_youhouuuuuuuuuuuuuuu(&game);
 	free_game(&game);
 	free_window(&game);
@@ -59,6 +58,9 @@ static void	looping_youhouuuuuuuuuuuuuuu(t_game *game)
 	mlx_loop_hook(game->mlx, render, game);
 	mlx_hook(game->win, KeyPress, KeyPressMask, &keypress_handle, game);
 	mlx_hook(game->win, KeyRelease, KeyReleaseMask, &keyrelease_handle, game);
+	
+	mlx_hook(game->win, ButtonPress, ButtonPressMask, &mouse_selection, game);
+	
 	mlx_hook(game->win, MotionNotify, PointerMotionMask, &mouse_handle, game);
 	mlx_hook(game->win, DestroyNotify, StructureNotifyMask, &close_window,
 		game);
@@ -78,9 +80,17 @@ static void	init_xpm(void *mlx, t_img **img, char *name)
 static void	init_bonus_textures(t_game *g)
 {
 	init_xpm(g->mlx, &g->start[0], "textures/menu/startscreen.xpm");
-	init_xpm(g->mlx, &g->start[1], "textures/menu/startscreen.xpm");
-	init_xpm(g->mlx, &g->start[2], "textures/menu/mapselectionplaceholder.xpm");
-	init_xpm(g->mlx, &g->start[3], "textures/menu/boss.xpm");
+	//init_xpm(g->mlx, &g->start[0], "textures/menu/start_menu.xpm");
+	init_xpm(g->mlx, &g->start[1], "textures/menu/start_menu_start.xpm");
+	init_xpm(g->mlx, &g->start[2], "textures/menu/start_menu_levels.xpm");
+	init_xpm(g->mlx, &g->start[3], "textures/menu/start_menu_credits.xpm");
+	init_xpm(g->mlx, &g->start[4], "textures/menu/start_menu_exit.xpm");
+	init_xpm(g->mlx, &g->start[5], "textures/menu/mapselectionplaceholder.xpm");
+	//credit
+	init_xpm(g->mlx, &g->start[6], "textures/menu/startscreen.xpm");
+
+	//init_xpm(g->mlx, &g->start[2], "textures/menu/mapselectionplaceholder.xpm");
+	init_xpm(g->mlx, &g->start[7], "textures/menu/boss.xpm");
 	init_xpm(g->mlx, &g->door[0], "textures/castle/door_v.xpm");
 	init_xpm(g->mlx, &g->door[1], "textures/castle/secret1.xpm");
 	init_xpm(g->mlx, &g->door[2], "textures/castle/bossroom1.xpm");

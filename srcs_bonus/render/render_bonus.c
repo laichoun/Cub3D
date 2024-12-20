@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 14:05:21 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/17 17:48:18 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/20 14:29:29 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	render(t_game *game)
 		/ 1000 >= 1000 / 30)
 	{
 		if (game->state == 0)
-			render_startscreen(game);
+			render_menuselection(game);
 		else if (game->state == 1)
 			render_mapselection(game);
 		else if (game->state == 2 && game->mapid < 2)

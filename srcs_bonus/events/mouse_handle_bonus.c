@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_handle_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:19 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:17:44 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:13:05 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 
 static void	mouse_right(t_game *game);
 static void	mouse_left(t_game *game);
+
+int	mouse_selection(int x, int y, t_game *game)
+{
+	if (x >= 37 && x <= 202 && y >= 238 && y <= 297)
+		game->menuid = 1;
+	if (x >= 37 && x <= 247 && y >= 330 && y <= 409)
+		game->menuid = 2;
+	if (x >= 37 && x <= 189 && y >= 470 && y <= 519)
+		game->menuid = 3;
+	if (x >= 37 && x <= 123 && y >= 595 && y <= 637)
+		game->menuid = 4;
+	return (SUCCESS);
+}
 
 int	mouse_handle(int x, int y, t_game *game)
 {

@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/19 17:07:01 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/20 14:30:00 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct s_game
 	t_img		*cur_tex;
 	t_img		*door[3];
 	t_img		*torch[3];
-	t_img		*start[4];
+	t_img		*start[8];
 	char		*level[10];
 	int			mapid;
 	float		t_coefx;
@@ -100,6 +100,7 @@ typedef struct s_game
 	float		tex_pos;
 	float		tex_step;
 	int			state;
+	int			menuid;
 }				t_game;
 
 //init / parsing
@@ -120,6 +121,8 @@ int				render_raycast(t_game *game);
 void			render_animation(t_game *game);
 int				draw_minimap(t_game *game);
 void			torch_anim(t_game *game);
+
+void	render_menuselection(t_game *game);
 
 // key_handle
 int				key_handle(int key, t_game *game);

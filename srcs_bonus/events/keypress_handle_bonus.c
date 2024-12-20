@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keypress_handle_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:33:44 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 18:00:11 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/20 10:27:20 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int	keypress_handle(int key, t_game *game)
 	if (game->state == 0 && key == XK_Return)
 		game->state = 1;
 	else if (game->state == 1)
-	{
 		handle_map_menu(key, game);
-	}
 	else if (game->state == 2)
 		handle_game_keypress(key, game);
 	if (key == XK_Escape)
