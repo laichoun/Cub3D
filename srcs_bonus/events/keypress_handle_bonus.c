@@ -26,6 +26,7 @@ int	keypress_handle(int key, t_game *game)
 		if (game->state == 2)
 		{
 			game->state = 0;
+			game->mapid = 0;
 			free_game(game);
 		}
 		else if (game->state == 1 || game->state == 3 || game->state == 4)
