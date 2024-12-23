@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:49 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 18:26:57 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/23 15:24:28 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	check_components(t_file *file)
 				&& file->map[i][j] != '1' && file->map[i][j] != '0'
 				&& file->map[i][j] != 'D' && file->map[i][j] != 'O'
 				&& file->map[i][j] != ' ' && file->map[i][j] != 'L'
-				&& file->map[i][j] != 'B')
+				&& file->map[i][j] != 'B' && file->map[i][j] != 'T')
 				return (err_msg(ERROR_CHAR, NULL), FAILURE);
 			j++;
 		}

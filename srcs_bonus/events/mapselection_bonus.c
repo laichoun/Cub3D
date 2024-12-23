@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:41:43 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/20 15:32:59 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/23 16:00:09 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,21 @@ void	handle_map_menu(int key, t_game *game)
 	game->state = 2;
 }
 
-int	load_next_map(t_game *game)
+int	load_next_map(t_game *game, char t)
 {
-	if (game->mapid < 8)
+	if (t == 'T')
+	{
+		free_game(game);
+		if (new_map(game, game->level[9]) == FAILURE)
+			return (FAILURE);
+	}
+	else if (t == 'B')
+		game->state = 3;
+	else if (game->mapid < 8)
 	{
 		free_game(game);
 		if (new_map(game, game->level[++game->mapid]) == FAILURE)
 			return (FAILURE);
 	}
-	else
-		game->state = 3;
 	return (SUCCESS);
 }

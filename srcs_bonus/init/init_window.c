@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 16:01:33 by laichoun          #+#    #+#             */
-/*   Updated: 2024/12/20 16:06:02 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/23 15:31:30 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@ void	init_bonus_textures(t_game *g)
 	init_xpm(g->mlx, &g->start[2], "textures/menu/start_menu_levels.xpm");
 	init_xpm(g->mlx, &g->start[3], "textures/menu/start_menu_credits.xpm");
 	init_xpm(g->mlx, &g->start[4], "textures/menu/start_menu_exit.xpm");
-	init_xpm(g->mlx, &g->start[5], "textures/menu/mapselectionplaceholder.xpm");
-	// credit
-	init_xpm(g->mlx, &g->start[6], "textures/menu/startscreen.xpm");
-	init_xpm(g->mlx, &g->start[7], "textures/menu/boss.xpm");
+	init_xpm(g->mlx, &g->start[5], "textures/menu/map_selection.xpm");
+	init_xpm(g->mlx, &g->start[6], "textures/menu/Credits.xpm");
+	init_xpm(g->mlx, &g->start[7], "textures/menu/issou.xpm");
 	init_xpm(g->mlx, &g->door[0], "textures/castle/door_v.xpm");
-	init_xpm(g->mlx, &g->door[1], "textures/castle/secret1.xpm");
-	init_xpm(g->mlx, &g->door[2], "textures/castle/bossroom1.xpm");
+	init_xpm(g->mlx, &g->door[1], "textures/castle/stairs.xpm");
+	init_xpm(g->mlx, &g->door[2], "textures/castle/door_boss.xpm");
 	init_xpm(g->mlx, &g->torch[0], "textures/torch/torch1.xpm");
 	init_xpm(g->mlx, &g->torch[1], "textures/torch/torch2.xpm");
 	init_xpm(g->mlx, &g->torch[2], "textures/torch/torch3.xpm");

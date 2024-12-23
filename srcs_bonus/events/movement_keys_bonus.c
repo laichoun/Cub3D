@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   movement_keys_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:28 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 17:45:59 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/23 15:50:08 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
-int	load_next_map(t_game *game);
+int	load_next_map(t_game *game, char t);
 
 void	w_key(t_game *game)
 {
@@ -143,8 +143,8 @@ int	space_key(t_game *game)
 				map[y + j][x + i] = 'O';
 			else if (map[y + j][x + i] == 'O')
 				map[y + j][x + i] = 'D';
-			else if (map[y + j][x + i] == 'L' || map[y + j][x + i] == 'B')
-				return (load_next_map(game));
+			else if (map[y + j][x + i] == 'L' || map[y + j][x + i] == 'B' || map[y + j][x + i] == 'T')
+				return (load_next_map(game, map[y + j][x + i]));
 		}
 	}
 	return (SUCCESS);

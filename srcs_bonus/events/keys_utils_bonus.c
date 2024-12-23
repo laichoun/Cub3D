@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 10:06:15 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/20 15:57:42 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/23 15:36:24 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ int	handle_door(char **map, int x, int y)
 int	is_coll(int x, int y, char **map)
 {
 	return (map[y][x] == '1' || map[y][x] == 'D' || map[y][x] == 'L'
-		|| map[y][x] == 'B');
+		|| map[y][x] == 'B' || map[y][x] == 'T');
 }
