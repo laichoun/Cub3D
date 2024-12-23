@@ -40,7 +40,7 @@ SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 
 #BONUS
-BNAME = Cub3D_bonus
+BNAME = cub3D_bonus
 BSRC_DIR = ./srcs_bonus/
 BOBJ_DIR = ./objs_bonus/
 
