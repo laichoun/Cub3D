@@ -56,7 +56,8 @@ int	load_next_map(t_game *game)
 	if (game->mapid < 8)
 	{
 		free_game(game);
-		new_map(game, game->level[++game->mapid]);
+		if (new_map(game, game->level[++game->mapid]) == FAILURE)
+			return (FAILURE);
 	}
 	else
 		game->state = 3;

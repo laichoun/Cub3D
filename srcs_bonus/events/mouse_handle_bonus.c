@@ -24,7 +24,8 @@ int	mouse_selection(int key, int x, int y, t_game *game)
 		if (game->menuid == 1)
 		{
 			free_game(game);
-			new_map(game, game->level[0]);
+			if (new_map(game, game->level[0]) == FAILURE)
+				return (FAILURE);
 			game->state = 2;
 		}
 		else if (game->menuid == 2)

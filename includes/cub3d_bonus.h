@@ -137,7 +137,7 @@ void			d_key(t_game *game);
 void			w_key(t_game *game);
 void			s_key(t_game *game);
 void			a_key(t_game *game);
-void			space_key(t_game *game);
+int				space_key(t_game *game);
 void			right_arrow_key(t_game *game);
 void			left_arrow_key(t_game *game);
 void			hide_show_mouse(t_game *game);

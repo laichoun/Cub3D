@@ -38,7 +38,13 @@ int	keypress_handle(int key, t_game *game)
 void	handle_game_keypress(int key, t_game *game)
 {
 	if (key == XK_space)
-		return (space_key(game), (void)0);
+	{
+		if (space_key(game) == FAILURE)
+		{
+			game->state = 0;
+			return ((void) 0);
+		}
+	}
 	else if (key == XK_w)
 		game->key[0] = 1;
 	else if (key == XK_a)

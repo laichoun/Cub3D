@@ -120,7 +120,7 @@ void	a_key(t_game *game)
 		game->pos_y += new_dir[1] * MOVE_SPEED / 2;
 }
 
-void	space_key(t_game *game)
+int	space_key(t_game *game)
 {
 	int		x;
 	int		y;
@@ -144,7 +144,8 @@ void	space_key(t_game *game)
 			else if (map[y + j][x + i] == 'O')
 				map[y + j][x + i] = 'D';
 			else if (map[y + j][x + i] == 'L' || map[y + j][x + i] == 'B')
-				return (load_next_map(game), (void)0);
+				return (load_next_map(game));
 		}
 	}
+	return (SUCCESS);
 }
