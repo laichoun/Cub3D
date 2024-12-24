@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:56 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/06 16:19:54 by laichoun         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:41:26 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,25 @@ void	free_bonus(t_game *game);
 void	free_game(t_game *game)
 {
 	ft_free_split(game->map);
-	mlx_destroy_image(game->mlx, game->screen);
-	mlx_destroy_image(game->mlx, game->textures.img_no);
-	mlx_destroy_image(game->mlx, game->textures.img_so);
-	mlx_destroy_image(game->mlx, game->textures.img_ea);
-	mlx_destroy_image(game->mlx, game->textures.img_we);
+	if (game->textures.img_no != NULL)
+		mlx_destroy_image(game->mlx, game->textures.img_no);
+	if (game->textures.img_so != NULL)
+		mlx_destroy_image(game->mlx, game->textures.img_so);
+	if (game->textures.img_ea != NULL)
+		mlx_destroy_image(game->mlx, game->textures.img_ea);
+	if (game->textures.img_we != NULL)
+		mlx_destroy_image(game->mlx, game->textures.img_we);
+	game->map = NULL;
+	game->textures.img_no = NULL;
+	game->textures.img_so = NULL;
+	game->textures.img_ea = NULL;
+	game->textures.img_we = NULL;
+}
+
+void	free_window(t_game *game)
+{
 	free_bonus(game);
+	mlx_destroy_image(game->mlx, game->screen);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
@@ -48,10 +61,18 @@ void	free_cardinals(t_file *file)
 
 void	free_bonus(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->door);
+	mlx_destroy_image(game->mlx, game->door[0]);
+	mlx_destroy_image(game->mlx, game->door[1]);
+	mlx_destroy_image(game->mlx, game->door[2]);
 	mlx_destroy_image(game->mlx, game->torch[0]);
 	mlx_destroy_image(game->mlx, game->torch[1]);
 	mlx_destroy_image(game->mlx, game->torch[2]);
 	mlx_destroy_image(game->mlx, game->start[0]);
 	mlx_destroy_image(game->mlx, game->start[1]);
+	mlx_destroy_image(game->mlx, game->start[2]);
+	mlx_destroy_image(game->mlx, game->start[3]);
+	mlx_destroy_image(game->mlx, game->start[4]);
+	mlx_destroy_image(game->mlx, game->start[5]);
+	mlx_destroy_image(game->mlx, game->start[6]);
+	mlx_destroy_image(game->mlx, game->start[7]);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_draw_vertline_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:41 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:16:55 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/24 10:46:09 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	set_cur_texture(t_game *game, int hit)
 	if (hit == 1 && game->side == 0)
 	{
 		if (game->dir_ray_x > 0)
-			game->cur_tex = game->textures.img_ea;
-		else
 			game->cur_tex = game->textures.img_we;
+		else
+			game->cur_tex = game->textures.img_ea;
 	}
 	if (hit == 1 && game->side == 1)
 	{
@@ -29,7 +29,11 @@ void	set_cur_texture(t_game *game, int hit)
 			game->cur_tex = game->textures.img_no;
 	}
 	else if (hit == 2)
-		game->cur_tex = game->door;
+		game->cur_tex = game->door[0];
+	else if (hit == 3)
+		game->cur_tex = game->door[1];
+	else if (hit == 4)
+		game->cur_tex = game->door[2];
 }
 
 // to make it darker

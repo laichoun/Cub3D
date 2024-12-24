@@ -3,32 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   keypress_handle_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:33:44 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/12 16:15:26 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:55:07 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
 void	handle_game_keypress(int key, t_game *game);
+void	handle_map_menu(int key, t_game *game);
 
 int	keypress_handle(int key, t_game *game)
 {
-	if (game->state == 0 && key == XK_Return)
-		game->state = 1;
-	else if (game->state == 1)
+	if (game->state == 1)
+		handle_map_menu(key, game);
+	else if (game->state == 2)
 		handle_game_keypress(key, game);
 	if (key == XK_Escape)
-		mlx_loop_end(game->mlx);
+	{
+		if (game->state == 2)
+		{
+			game->state = 0;
+			game->mapid = 0;
+			free_game(game);
+		}
+		else if (game->state == 1 || game->state == 3 || game->state == 4)
+			game->state = 0;
+	}
 	return (SUCCESS);
 }
 
 void	handle_game_keypress(int key, t_game *game)
 {
 	if (key == XK_space)
-		space_key(game);
+	{
+		if (space_key(game) == FAILURE)
+		{
+			game->state = 0;
+			return ((void) 0);
+		}
+	}
 	else if (key == XK_w)
 		game->key[0] = 1;
 	else if (key == XK_a)

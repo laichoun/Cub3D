@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:38 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/09 14:09:49 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/23 15:40:43 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,17 @@ void	compute_rays(t_game *game)
 
 int	set_hit(t_game *game)
 {
-	if (game->map[game->ray_pos_y][game->ray_pos_x] == '1')
+	char	tile;
+
+	tile = game->map[game->ray_pos_y][game->ray_pos_x];
+	if (tile == '1')
 		return (1);
-	if (game->map[game->ray_pos_y][game->ray_pos_x] == 'D')
+	if (tile == 'D' || tile == 'T')
 		return (2);
+	if (tile == 'L')
+		return (3);
+	if (tile == 'B')
+		return (4);
 	return (0);
 }
 

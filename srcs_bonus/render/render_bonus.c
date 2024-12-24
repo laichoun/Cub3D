@@ -3,18 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 14:05:21 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/12 18:05:38 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:54:18 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
-#include <stdio.h>
 
-void	render_startscreen(t_game *game);
+void	render_mapselection(t_game *game);
 void	fps(t_game *game, struct timeval cur);
+
+void	render_game(t_game *game)
+{
+	render_raycast(game);
+	draw_minimap(game);
+	render_animation(game);
+	player_actions(game);
+	mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
+}
 
 int	render(t_game *game)
 {
@@ -23,16 +31,19 @@ int	render(t_game *game)
 
 	if (gettimeofday(&cur, NULL) == -1)
 		return (FAILURE);
-	if (game->state == 0)
-		render_startscreen(game);
-	else if ((cur.tv_sec - last.tv_sec) * 1000 + (cur.tv_usec - last.tv_usec)
+	if ((cur.tv_sec - last.tv_sec) * 1000 + (cur.tv_usec - last.tv_usec)
 		/ 1000 >= 1000 / 30)
 	{
-		render_raycast(game);
-		draw_minimap(game);
-		render_animation(game);
-		player_actions(game);
-		mlx_put_image_to_window(game->mlx, game->win, game->screen, 0, 0);
+		if (game->state == 0)
+			render_menuselection(game);
+		else if (game->state == 1)
+			render_mapselection(game);
+		else if (game->state == 2 && game->mapid < 10)
+			render_game(game);
+		else if (game->state == 3)
+			mlx_put_image_to_window(game->mlx, game->win, game->start[7], 0, 0);
+		else if (game->state == 4)
+			mlx_put_image_to_window(game->mlx, game->win, game->start[6], 0, 0);
 		fps(game, cur);
 		last = cur;
 	}

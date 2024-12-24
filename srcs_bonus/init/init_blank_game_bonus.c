@@ -6,25 +6,15 @@
 /*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:27:11 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 13:17:21 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:08:54 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
-void	blank_textures(t_game *gamep);
-
 void	init_blank_game(t_game *gamep)
 {
-	blank_textures(gamep);
 	gamep->map = NULL;
-	gamep->mlx = NULL;
-	gamep->screen = NULL;
-	gamep->win = NULL;
-}
-
-void	blank_textures(t_game *gamep)
-{
 	gamep->textures.img_no = NULL;
 	gamep->textures.img_so = NULL;
 	gamep->textures.img_ea = NULL;

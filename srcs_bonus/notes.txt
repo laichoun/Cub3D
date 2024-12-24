@@ -1,0 +1,4 @@
+* choose map from game not when launching
+* esc returns to map (free cur map)
+* should textures always be loaded? or freed and recompiled upon a new map
+* change map with buttons, easier than mouse only one static image

@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:29:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/12 15:51:54 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:03:46 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,11 @@ typedef struct s_game
 	void		*win;
 	t_img		*screen;
 	t_img		*cur_tex;
-	t_img		*door;
+	t_img		*door[3];
 	t_img		*torch[3];
-	t_img		*start[2];
+	t_img		*start[8];
+	char		*level[10];
+	int			mapid;
 	float		t_coefx;
 	float		t_coefy;
 	float		pos_x;
@@ -98,14 +100,14 @@ typedef struct s_game
 	float		tex_pos;
 	float		tex_step;
 	int			state;
+	int			menuid;
 }				t_game;
 
-//init / parsing
-int				init_game(t_game *game, char *filename);
-int				init_game_data(t_game *gamep, t_file *data);
+// init / parsing
+int				new_map(t_game *game, char *filename);
+int				init_gamemap(t_game *gamep, t_file *data);
 void			init_blank_game(t_game *gamep);
 int				init_mlx(t_game *game, t_file *file);
-void			free_game(t_game *game);
 void			skip_newlines(t_file *file, int *i);
 int				set_player_dir(t_game *gamep, t_file *file);
 int				init_raycast(t_game *game, t_file *file);
@@ -120,9 +122,14 @@ void			render_animation(t_game *game);
 int				draw_minimap(t_game *game);
 void			torch_anim(t_game *game);
 
+void			render_menuselection(t_game *game);
+
 // key_handle
 int				key_handle(int key, t_game *game);
 int				close_window(t_game *game);
+
+int				map_menu(t_game *game);
+
 // keys
 int				keypress_handle(int key, t_game *game);
 int				keyrelease_handle(int key, t_game *game);
@@ -130,17 +137,22 @@ void			d_key(t_game *game);
 void			w_key(t_game *game);
 void			s_key(t_game *game);
 void			a_key(t_game *game);
-void			space_key(t_game *game);
+int				space_key(t_game *game);
 void			right_arrow_key(t_game *game);
 void			left_arrow_key(t_game *game);
 void			hide_show_mouse(t_game *game);
 int				mouse_handle(int x, int y, t_game *game);
 int				is_coll(int x, int y, char **map);
+void			handle_map_menu(int key, t_game *game);
+int				mouse_selection(int key, int x, int y, t_game *game);
 
-//actions
-void	player_actions(t_game *game);
-int		is_moving(t_game *game);
+// actions
+void			player_actions(t_game *game);
+int				is_moving(t_game *game);
 
+// free
+void			free_window(t_game *game);
+void			free_game(t_game *game);
 // error
 void			err_msg(int err_code, char *msg);
 

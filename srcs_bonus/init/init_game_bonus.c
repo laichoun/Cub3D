@@ -6,19 +6,19 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:22 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/09 14:22:43 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/24 10:59:57 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
-int		init_game_data(t_game *gamep, t_file *file);
+int		init_gamemap(t_game *gamep, t_file *file);
 int		check_extension(char *filename, char *ext);
 int		set_textures(t_game *game, t_file *file);
 void	init_blank_game(t_game *gamp);
 int		set_file_colors(t_file *file, char **tab);
 
-int	init_game(t_game *gamep, char *filename)
+int	new_map(t_game *gamep, char *filename)
 {
 	t_file	file;
 
@@ -32,7 +32,7 @@ int	init_game(t_game *gamep, char *filename)
 		return (free_file(&file), FAILURE);
 	if (check_file(&file))
 		return (free_file(&file), FAILURE);
-	if (init_game_data(gamep, &file))
+	if (init_gamemap(gamep, &file))
 		return (free_file(&file), FAILURE);
 	return (free_file(&file), SUCCESS);
 }
@@ -42,7 +42,7 @@ int	check_setvar(t_file *file, int i)
 	char	**tab;
 	int		size;
 
-	tab = ft_strtok(file->cp_file[i], " ,\n");
+	tab = ft_strtok(file->cp_file[i], " ,\n\t");
 	if (!tab)
 		return (err_msg(ERROR_MALLOC, NULL), FAILURE);
 	size = ft_split_size(tab);
@@ -90,7 +90,7 @@ int	set_variable(t_file *file)
 	return (SUCCESS);
 }
 
-int	init_game_data(t_game *gamep, t_file *file)
+int	init_gamemap(t_game *gamep, t_file *file)
 {
 	init_blank_game(gamep);
 	if (!file)
@@ -98,7 +98,6 @@ int	init_game_data(t_game *gamep, t_file *file)
 	gamep->map = ft_dupsplit(file->map);
 	gamep->row = file->height;
 	gamep->col = file->width;
-	gamep->state = 0;
 	init_raycast(gamep, file);
 	set_player_dir(gamep, file);
 	set_textures(gamep, file);
