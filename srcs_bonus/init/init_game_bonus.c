@@ -6,7 +6,7 @@
 /*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:22 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/18 17:04:50 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/24 10:59:57 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	check_setvar(t_file *file, int i)
 	char	**tab;
 	int		size;
 
-	tab = ft_strtok(file->cp_file[i], " ,\n");
+	tab = ft_strtok(file->cp_file[i], " ,\n\t");
 	if (!tab)
 		return (err_msg(ERROR_MALLOC, NULL), FAILURE);
 	size = ft_split_size(tab);

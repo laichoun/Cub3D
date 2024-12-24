@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:26:22 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:27:26 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/24 10:47:04 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	check_setvar(t_file *file, int i)
 	char	**tab;
 	int		size;
 
-	tab = ft_strtok(file->cp_file[i], " ,\n");
+	tab = ft_strtok(file->cp_file[i], " ,\n\t");
 	if (!tab)
 		return (err_msg(ERROR_MALLOC, NULL), FAILURE);
 	size = ft_split_size(tab);

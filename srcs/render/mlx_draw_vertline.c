@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_draw_vertline.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibernar <@student.42Luxembourg.com>       +#+  +:+       +#+        */
+/*   By: laichoun <laichoun@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 11:28:41 by pibernar          #+#    #+#             */
-/*   Updated: 2024/12/04 11:28:49 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/12/24 10:45:41 by laichoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	set_cur_texture(t_game *game)
 	if (game->side == 0)
 	{
 		if (game->dir_ray_x > 0)
-			game->cur_tex = game->textures.img_ea;
-		else
 			game->cur_tex = game->textures.img_we;
+		else
+			game->cur_tex = game->textures.img_ea;
 	}
 	else
 	{

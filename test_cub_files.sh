@@ -14,7 +14,7 @@ CYAN='\e[36m'
 WHITE='\e[37m'h
 NC="\033[0m"  # No color (reset)
 
-EXECUTABLE="./Cub3D"  # Path to executable
+EXECUTABLE="./cub3D"  # Path to executable
 
 EXPECTED_EXIT_CODE=1
 #Directory
