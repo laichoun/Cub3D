@@ -1,6 +1,6 @@
 # Cub3D
 
-CUB3D is a 42 project about raycasting worked in collaboration with bepip
+CUB3D is a 42 project about raycasting worked in collaboration with [bepip](https://github.com/bepip)
 
 To run the game on linux execute the following line
 ```
